@@ -18,6 +18,7 @@ public class AIOutside : MonoBehaviour
             angle = angle + p / (10.0f);
 
             Instantiate(Cubepre, new Vector3(Mathf.Sin(angle) * 4 * size, 0, Mathf.Cos(angle) * 4 * size), Quaternion.identity);
+
             Instantiate(Cubepre, new Vector3(Mathf.Sin(angle) * 3 * size, 0, Mathf.Cos(angle) * 3 * size), Quaternion.identity);
 
         }
