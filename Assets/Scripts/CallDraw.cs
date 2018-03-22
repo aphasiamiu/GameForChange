@@ -14,19 +14,19 @@ public class CallDraw : MonoBehaviour {
     void Start()
     {
         t = Time.time;
-        mData[0] = 0;
+        mData[0] = 10;
         mData[1] = 180;
         mData[2] = 0 ;
     }
     void FixedUpdate () {
-        if (Time.time - t >= 1 && mData[1]>10)
+        if (Time.time - t >= 1 && mData[1]>0)
         {
             t = Time.time;
             a = Random.Range(0.0f, 10.0f);
             b = Random.Range(0.0f, 10.0f);
             mData[0] += a;
-            mData[2] += b;
-            mData[1] = mData[1] - a - b;
+            mData[1] -= a;
+            mData[2] = 0;
             // Debug.Log(t);
         }
         pie.Init(mData,100,mRotationAngle,mRadius);

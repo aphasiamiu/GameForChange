@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIMove : MonoBehaviour {
+public class ParticleShowUp : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
