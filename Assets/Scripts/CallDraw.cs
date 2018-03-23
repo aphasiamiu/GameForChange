@@ -15,15 +15,15 @@ public class CallDraw : MonoBehaviour {
     {
         t = Time.time;
         mData[0] = 10;
-        mData[1] = 180;
+        mData[1] = 90;
         mData[2] = 0 ;
     }
     void FixedUpdate () {
-        if (Time.time - t >= 1 && mData[1]>0)
+        if (Time.time - t >= 1 && mData[1]>10)
         {
             t = Time.time;
-            a = Random.Range(0.0f, 10.0f);
-            b = Random.Range(0.0f, 10.0f);
+            a = 5;
+           // b = Random.Range(0.0f, 10.0f);
             mData[0] += a;
             mData[1] -= a;
             mData[2] = 0;
