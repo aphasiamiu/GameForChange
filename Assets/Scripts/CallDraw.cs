@@ -19,7 +19,7 @@ public class CallDraw : MonoBehaviour {
         mData[2] = 0 ;
     }
     void FixedUpdate () {
-        if (Time.time - t >= 1 && mData[1]>10)
+        if (Time.time - t >= 2 && mData[1]>10)
         {
             t = Time.time;
             a = 5;

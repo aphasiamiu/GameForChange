@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UIMove : MonoBehaviour {
-    public GameObject cube;
+    
+    float t;
     // Use this for initialization
     void Start () {
-        
+        t = Time.time;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        cube.transform.Translate(Vector3.forward * Time.deltaTime);
+	void Update ()
+    {
+        float TranslateSpeed = 0.025f;
+
+        
+        this.transform.Translate(Vector3.up * TranslateSpeed);
+
     }
 }

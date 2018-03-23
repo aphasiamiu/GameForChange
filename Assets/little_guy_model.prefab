@@ -504,16 +504,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1914466078460450}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25da76ba73741d0429073228deb72657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 54734796247743850}
   pop: {fileID: 198965066083398758}
-  a: 0
-  t2: 0
-  t: 0
 --- !u!136 &136668213391066518
 CapsuleCollider:
   m_ObjectHideFlags: 1
