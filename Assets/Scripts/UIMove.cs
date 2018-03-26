@@ -13,10 +13,13 @@ public class UIMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        float TranslateSpeed = 0.025f;
+        float TranslateSpeed = 1.0f; 
+        this.transform.Translate(Vector3.up * TranslateSpeed);
+        if (this.GetComponent<RectTransform>().localPosition.y>275) {
+            
+            this.GetComponent<RectTransform>().sizeDelta = new Vector2(210, 140);
+        }
 
         
-        this.transform.Translate(Vector3.up * TranslateSpeed);
-
     }
 }

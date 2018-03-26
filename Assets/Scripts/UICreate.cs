@@ -1,24 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
-public class UICreate : MonoBehaviour {
-    float t;
-    public GameObject prefab1;
+public class UICreate : MonoBehaviour
+{
+
+    public GameObject prefab;
     public GameObject prefab2;
-    // Use this for initialization
-    void Start () {
+    GameObject pre;
+    GameObject pre2;
+    float t;
+    void Start()
+    {
         t = Time.time;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (Time.time - t >= 2)
+    }
+    void Update()
+    {
+        if (Time.time - t > 2)
         {
             t = Time.time;
-            Instantiate(prefab1, new Vector3(-8, -6,1), Quaternion.identity);
-            Instantiate(prefab2, new Vector3(8, -6, 1), Quaternion.identity);
+            pre = (GameObject)Instantiate(prefab);
+            pre.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform);
+            pre.GetComponent<RectTransform>().localPosition = new Vector3(450, -400, 0);
+            pre.GetComponent<RectTransform>().sizeDelta = new Vector2(150, 100);
+            pre2 = (GameObject)Instantiate(prefab2);
+            pre2.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform);
+            pre2.GetComponent<RectTransform>().localPosition = new Vector3(-450, -400, 0);
+            pre2.GetComponent<RectTransform>().sizeDelta = new Vector2(150, 100);
         }
-
     }
+
 }

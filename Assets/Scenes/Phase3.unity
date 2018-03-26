@@ -112,6 +112,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &186183115 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1919707418676434, guid: 7bb115e50d265ba4fa7e294d21941c4c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1770857338}
 --- !u!1001 &322733064
 Prefab:
   m_ObjectHideFlags: 0
@@ -122,12 +127,12 @@ Prefab:
     - target: {fileID: 224269126111662852, guid: 270a5cba1e537c64a8ed777c85657bdc,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -500
+      value: -450
       objectReference: {fileID: 0}
     - target: {fileID: 224269126111662852, guid: 270a5cba1e537c64a8ed777c85657bdc,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -250
+      value: -400
       objectReference: {fileID: 0}
     - target: {fileID: 224269126111662852, guid: 270a5cba1e537c64a8ed777c85657bdc,
         type: 2}
@@ -162,17 +167,17 @@ Prefab:
     - target: {fileID: 224269126111662852, guid: 270a5cba1e537c64a8ed777c85657bdc,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -500
+      value: -450
       objectReference: {fileID: 0}
     - target: {fileID: 224269126111662852, guid: 270a5cba1e537c64a8ed777c85657bdc,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -250
+      value: -400
       objectReference: {fileID: 0}
     - target: {fileID: 224269126111662852, guid: 270a5cba1e537c64a8ed777c85657bdc,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 224269126111662852, guid: 270a5cba1e537c64a8ed777c85657bdc,
         type: 2}
@@ -228,9 +233,10 @@ GameObject:
   - component: {fileID: 1211068593}
   - component: {fileID: 1211068592}
   - component: {fileID: 1211068591}
+  - component: {fileID: 1211068595}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -312,6 +318,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1211068595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1211068590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad15dd2ed4131154d918694fedaa4a43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 186183115}
+  prefab2: {fileID: 1554255691}
 --- !u!1 &1310725759
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,17 +560,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224269126111662852, guid: 270a5cba1e537c64a8ed777c85657bdc,
     type: 2}
   m_PrefabInternal: {fileID: 322733064}
---- !u!114 &1554255695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1554255691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dae78a56e0e2404781a2d8d26e3e774, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1596562376
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,12 +632,12 @@ Prefab:
     - target: {fileID: 224709701883997300, guid: 7bb115e50d265ba4fa7e294d21941c4c,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 500
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 224709701883997300, guid: 7bb115e50d265ba4fa7e294d21941c4c,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -250
+      value: -400
       objectReference: {fileID: 0}
     - target: {fileID: 224709701883997300, guid: 7bb115e50d265ba4fa7e294d21941c4c,
         type: 2}
@@ -664,17 +672,17 @@ Prefab:
     - target: {fileID: 224709701883997300, guid: 7bb115e50d265ba4fa7e294d21941c4c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 500
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 224709701883997300, guid: 7bb115e50d265ba4fa7e294d21941c4c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -250
+      value: -400
       objectReference: {fileID: 0}
     - target: {fileID: 224709701883997300, guid: 7bb115e50d265ba4fa7e294d21941c4c,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 224709701883997300, guid: 7bb115e50d265ba4fa7e294d21941c4c,
         type: 2}
