@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UIMove : MonoBehaviour {
-    
-    float t=100000000.0f;
+
+    float t;
     int i = 0;
     int j = 0;
     // Use this for initialization
@@ -17,22 +17,20 @@ public class UIMove : MonoBehaviour {
     {
            
         
-        if (this.GetComponent<RectTransform>().localPosition.y>400 && i==0 && j==0) {
+        if (this.GetComponent<RectTransform>().localPosition.y>400) {
             
             this.GetComponent<RectTransform>().sizeDelta = new Vector2(450, 300);
+        }
+        if (Time.time - t > 0.5)
+        {
+            i = i + 1;
             t = Time.time;
-            j = 1;
         }
-        if (Time.time - t > 1)
+        if (i % 2 != 1)
         {
-            i = 1;
-        }
-        if (this.GetComponent<RectTransform>().localPosition.y <= 400 || i != 0)
-        {
-            float TranslateSpeed = 10.0f;
+            float TranslateSpeed = 8.0f;
             this.transform.Translate(Vector3.up * TranslateSpeed);
         }
-
         
     }
 }
