@@ -19,7 +19,7 @@ public class CallDraw : MonoBehaviour {
         mData[2] = 0 ;
     }
     void FixedUpdate () {
-        if (Time.time - t >= 2)
+        if (Time.time - t >= 1)
         {
             t = Time.time;
             a = Random.Range(0.0f, 10.0f);

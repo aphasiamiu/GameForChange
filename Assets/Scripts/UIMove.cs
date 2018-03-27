@@ -19,7 +19,7 @@ public class UIMove : MonoBehaviour {
         
         if (this.GetComponent<RectTransform>().localPosition.y>400) {
             
-            this.GetComponent<RectTransform>().sizeDelta = new Vector2(450, 300);
+            this.GetComponent<RectTransform>().sizeDelta = new Vector2(375, 250);
         }
         if (Time.time - t > 0.5)
         {
@@ -28,7 +28,7 @@ public class UIMove : MonoBehaviour {
         }
         if (i % 2 != 1)
         {
-            float TranslateSpeed = 8.0f;
+            float TranslateSpeed = 8.3f;
             this.transform.Translate(Vector3.up * TranslateSpeed);
         }
         
