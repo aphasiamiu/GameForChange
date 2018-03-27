@@ -15,11 +15,14 @@ public class UIMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-           
-        
+        if (this.GetComponent<RectTransform>().localPosition.y > 600)
+        {
+            Destroy(this.gameObject);
+        }
+
         if (this.GetComponent<RectTransform>().localPosition.y>400) {
             
-            this.GetComponent<RectTransform>().sizeDelta = new Vector2(375, 250);
+            this.GetComponent<RectTransform>().sizeDelta = new Vector2(480, 320);
         }
         if (Time.time - t > 0.5)
         {

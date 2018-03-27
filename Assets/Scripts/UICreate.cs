@@ -17,11 +17,11 @@ public class UICreate : MonoBehaviour
             pre = (GameObject)Instantiate(prefab);
             pre.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform);
             pre.GetComponent<RectTransform>().localPosition = new Vector3(1000, 285 - 250 * i, 0);
-            pre.GetComponent<RectTransform>().sizeDelta = new Vector2(300, 200);
+            pre.GetComponent<RectTransform>().sizeDelta = new Vector2(240, 160);
             pre2 = (GameObject)Instantiate(prefab2);
             pre2.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform);
             pre2.GetComponent<RectTransform>().localPosition = new Vector3(-1000, 285 - 250 * i, 0);
-            pre2.GetComponent<RectTransform>().sizeDelta = new Vector2(300, 200);
+            pre2.GetComponent<RectTransform>().sizeDelta = new Vector2(240, 180);
         }
     }
     void Update()
