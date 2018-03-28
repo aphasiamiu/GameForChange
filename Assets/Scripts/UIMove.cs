@@ -34,7 +34,7 @@ public class UIMove : MonoBehaviour {
         }
         if (i % 2 != 1)
         {
-            float TranslateSpeed = 6.5f;
+            float TranslateSpeed = 8.5f;
             this.transform.Translate(Vector3.up * TranslateSpeed);
         }
         
