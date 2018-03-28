@@ -15,12 +15,15 @@ public class UIMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (this.GetComponent<RectTransform>().localPosition.y > 680)
-        {
-            Destroy(this.gameObject);
-        }
+        
+        int height = Mathf.CeilToInt(Screen.height);
+        int width = Mathf.CeilToInt(Screen.width);
+        //if (this.GetComponent<RectTransform>().localPosition.y >height/2+100)
+        //{
+        //    Destroy(this.gameObject);
+        //}
 
-        if (this.GetComponent<RectTransform>().localPosition.y>450) {
+        if (this.GetComponent<RectTransform>().localPosition.y> height-800) {
             
             this.GetComponent<RectTransform>().sizeDelta = new Vector2(480, 320);
         }
