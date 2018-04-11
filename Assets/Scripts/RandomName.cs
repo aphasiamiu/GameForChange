@@ -13,8 +13,8 @@ public class RandomName : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        name.GetComponent<Text>().text = ReadSelectedUser.Instance.names[int.Parse(transform.parent.name)];
-        name.transform.parent.Find("score").GetComponent<Text>().text = ReadSelectedUser.Instance.points[int.Parse(transform.parent.name)].ToString();
+        name.GetComponent<Text>().text = ReadSelectedUser.Instance.names[int.Parse(transform.parent.name)-1];
+        name.transform.parent.Find("score").GetComponent<Text>().text = ReadSelectedUser.Instance.points[int.Parse(transform.parent.name)-1].ToString();
     }
 
     //private void DisplayData()

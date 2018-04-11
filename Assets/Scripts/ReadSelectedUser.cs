@@ -56,10 +56,17 @@ public class ReadSelectedUser : MonoBehaviour
                 print(point);
             }
            
-            //yield return new WaitForSeconds(1);
+           // yield return new WaitForSeconds(1);
         }
     }
-    public void FixedUpdate()
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Application.LoadLevel(Application.loadedLevelName);
+        }
+    }
+        public void FixedUpdate()
     {
         for(int j = 0;j < points.Count; j = j + 1)
         {
@@ -76,5 +83,6 @@ public class ReadSelectedUser : MonoBehaviour
                 }
             }
         }
+        
     }
 }
