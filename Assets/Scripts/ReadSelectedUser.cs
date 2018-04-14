@@ -9,10 +9,12 @@ using UnityEngine.UI;
 public class ReadSelectedUser : MonoBehaviour
 {
     public static ReadSelectedUser Instance;
-
+    public float time;
     public int i = 0;
     public List<string> names = new List<string>();
     public List<int> points = new List<int>();
+    public List<string> sortnames = new List<string>();
+    public List<int> sortpoints = new List<int>();
     public GameObject text;
     private int startNum;
     private int count;
@@ -25,6 +27,7 @@ public class ReadSelectedUser : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        time = Time.time;
         startNum = 0;
         count = 0;
         startflag = false;
@@ -48,41 +51,48 @@ public class ReadSelectedUser : MonoBehaviour
          
             string name = N["names"][i];
             int point = N["points"][i];
-            i = i + 1;
+            
             if (point != 0) {
                 names.Add(name);
                 points.Add(point);
-                print(name);
-                print(point);
+                sortnames.Add("");
+                sortpoints.Add(0);
+                i = i + 1;
+                //print(name);
+                //print(point);
             }
-           
+           for(int j = 0; j < i; j = j + 1)
+            {
+                names[j]= N["names"][j];
+                points[j]= N["points"][j];
+            }
            // yield return new WaitForSeconds(1);
         }
     }
     void Update()
     {
+        if (Time.time - time > 0.1)
+        {
+            StartCoroutine(GetText());
+            for (int i = 0; i < points.Count; i = i + 1)
+            {
+                sortnames[i] = names[i];
+                sortpoints[i] = points[i];
+            }
+        sortpoints.Sort((x, y) => -x.CompareTo(y));
+            for (int i = 0; i < points.Count; i = i + 1)
+            {
+                for (int j = 0; j < points.Count; j = j + 1)
+                    if (sortpoints[i] == points[j]){
+                    sortnames[i] = names[j];
+                }
+            }
+
+        }
         if (Input.GetKeyDown(KeyCode.A))
         {
             Application.LoadLevel(Application.loadedLevelName);
         }
     }
-        public void FixedUpdate()
-    {
-        for(int j = 0;j < points.Count; j = j + 1)
-        {
-            for (int k = j; k < names.Count; k = k + 1)
-            {
-                if (points[k] > points[j])
-                {
-                    int tmp = points[k];
-                    points[k] = points[j];
-                    points[j] = tmp;
-                    string tmps = names[k];
-                    names[k] = names[j];
-                    names[j] = tmps;
-                }
-            }
-        }
-        
-    }
+       
 }
