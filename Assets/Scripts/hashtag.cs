@@ -17,8 +17,9 @@ public class hashtag : MonoBehaviour {
         if (Time.time - t > 1)
         {
             t = Time.time;
-            int i = Random.Range(-10, 10);
-            this.tag.fontSize += i;
+            //int i = Random.Range(-10, 10);
+            this.tag.fontSize += (ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1]);
+            
         }
         
 	}
