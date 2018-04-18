@@ -20,6 +20,10 @@ public class timer : MonoBehaviour {
         {
             t = Time.time;
             all = all - 1;
+            if (all <= 0)
+            {
+                all = 0;
+            }
             min = all / 60;
             sec = all % 60;
         }
