@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class hand : MonoBehaviour {
+    public double cap;
+    public double transratio = 0.01;
+    public double heartratio = 6.0;
     public GameObject finger;
     public int max = 0;
 	// Use this for initialization
@@ -21,11 +24,12 @@ public class hand : MonoBehaviour {
         }
        
         float TranslateSpeed = 0.1f;
-        if(max<150000)
+        cap = 0.5 * transratio * ReadSelectedUser.Instance.sum * heartratio / 14.0;
+        if(max<cap)
         {
             this.transform.Translate(Vector3.down * TranslateSpeed);
         }
-        if (max > 300000)
+        else
         { 
             this.transform.Translate(Vector3.up * TranslateSpeed);
         }

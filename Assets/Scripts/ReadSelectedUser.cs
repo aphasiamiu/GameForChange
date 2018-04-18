@@ -12,6 +12,7 @@ public class ReadSelectedUser : MonoBehaviour
     public float time;
     public int i = 0;
     public int j = 0;
+    public double sum;
     public List<string> names = new List<string>();
     public List<int> points = new List<int>();
     public List<string> sortnames = new List<string>();
@@ -32,6 +33,7 @@ public class ReadSelectedUser : MonoBehaviour
     {
         time = Time.time;
         startNum = 0;
+        sum = 0;
         count = 0;
         startflag = false;
         StartCoroutine(GetText());
@@ -58,6 +60,7 @@ public class ReadSelectedUser : MonoBehaviour
             int hashpoint = N["hashpoints"][j];
             
             if (!(name == null)) {
+                sum += point;
                 names.Add(name);
                 points.Add(point);
                 sortnames.Add("");
