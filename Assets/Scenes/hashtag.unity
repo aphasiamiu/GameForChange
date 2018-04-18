@@ -690,15 +690,15 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 710156724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33, y: -250, z: 0}
-  m_LocalScale: {x: 3.9651453, y: 1, z: 1}
+  m_LocalPosition: {x: 21, y: -250, z: 0}
+  m_LocalScale: {x: 5.418382, y: 1.3665022, z: 1.3665022}
   m_Children: []
   m_Father: {fileID: 746684910}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 33, y: -250}
+  m_AnchoredPosition: {x: 21, y: -250}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &710156726
@@ -1617,6 +1617,7 @@ GameObject:
   - component: {fileID: 1483005097}
   - component: {fileID: 1483005099}
   - component: {fileID: 1483005098}
+  - component: {fileID: 1483005100}
   m_Layer: 5
   m_Name: finger
   m_TagString: Untagged
@@ -1631,7 +1632,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1483005096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -378, y: 178, z: 0}
+  m_LocalPosition: {x: -378, y: 170, z: 0}
   m_LocalScale: {x: 1.250148, y: 1.8437644, z: 1}
   m_Children: []
   m_Father: {fileID: 746684910}
@@ -1639,7 +1640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -378, y: 178}
+  m_AnchoredPosition: {x: -378, y: 170}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1483005098
@@ -1675,6 +1676,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1483005096}
+--- !u!114 &1483005100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1483005096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e7806187df841946a37174a5cc279e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finger: {fileID: 1483005096}
+  max: 0
 --- !u!1001 &1487376098
 Prefab:
   m_ObjectHideFlags: 0
@@ -1904,8 +1918,9 @@ GameObject:
   - component: {fileID: 1636791129}
   - component: {fileID: 1636791131}
   - component: {fileID: 1636791130}
+  - component: {fileID: 1636791132}
   m_Layer: 5
-  m_Name: Launch
+  m_Name: talk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1918,7 +1933,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1636791128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -251, z: 0}
+  m_LocalPosition: {x: -27, y: -251, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 746684910}
@@ -1926,8 +1941,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -251}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_AnchoredPosition: {x: -27, y: -251}
+  m_SizeDelta: {x: 300, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1636791130
 MonoBehaviour:
@@ -1950,10 +1965,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 1
     m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1968,6 +1983,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1636791128}
+--- !u!114 &1636791132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1636791128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3364c1c8c34ea9d4e8fb1e27d6ca6ba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finger: {fileID: 1483005096}
+  talk: {fileID: 1636791128}
 --- !u!1001 &1656905554
 Prefab:
   m_ObjectHideFlags: 0

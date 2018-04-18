@@ -57,7 +57,7 @@ public class ReadSelectedUser : MonoBehaviour
             string hashtag = N["hashtags"][j];
             int hashpoint = N["hashpoints"][j];
             
-            if (point != 0) {
+            if (!(name == null)) {
                 names.Add(name);
                 points.Add(point);
                 sortnames.Add("");
@@ -66,7 +66,7 @@ public class ReadSelectedUser : MonoBehaviour
                 //print(name);
                 //print(point);
             }
-            if (hashpoint != 0)
+            if (!(hashtag == null))
             {
                 hashpoints.Add(hashpoint);
                 hashtags.Add(hashtag);
