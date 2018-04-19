@@ -81,23 +81,29 @@ public class ReadSelectedUser : MonoBehaviour
             }
             for (int j = 0; j < i; j = j + 1)
             {
-                names[j]= N["names"][j];
-                points[j]= N["points"][j];
+                hashtags[j]= N["hashtags"][j];
+                hashpoints[j]= N["hashpoints"][j];
             }
-           // yield return new WaitForSeconds(1);
+            for (int j = 0; j < i; j = j + 1)
+            {
+                names[j] = N["names"][j];
+                points[j] = N["points"][j];
+            }
+            // yield return new WaitForSeconds(1);
         }
     }
     void Update()
     {
-        if (Time.time - time > 0.1)
+        if (Time.time - time > 1)
         {
+            time = Time.time;
             StartCoroutine(GetText());
             for (int i = 0; i < points.Count; i = i + 1)
             {
                 sortnames[i] = names[i];
                 sortpoints[i] = points[i];
             }
-        sortpoints.Sort((x, y) => -x.CompareTo(y));
+            sortpoints.Sort((x, y) => -x.CompareTo(y));
             for (int i = 0; i < points.Count; i = i + 1)
             {
                 for (int j = 0; j < points.Count; j = j + 1)

@@ -12,21 +12,23 @@ public class hashtag : MonoBehaviour {
     void Start () {
         t = Time.time;
 	}
-	
-	// Update is called once per frame
-	void Update() {
+    private void FixedUpdate()
+    {
         tag.GetComponent<Text>().text = ReadSelectedUser.Instance.hashtags[int.Parse(transform.parent.name) - 1];
         if (Time.time - t > 0.1)
         {
             t = Time.time;
             int i = Random.Range(-10, 10);
-            float m = 1.0f;
-            for (int p = 0; p < ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1] / 10000; p++)
-            {
-                m = m * 1.05f;
-            }
-            this.tag.fontSize = 10 * (int)m;
+            // float m = 1.0f;
+            // for (int p = 0; p < ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1] / 10000; p++)
+            // {
+            //     m = m * 1.05f;
+            // }
+            //// this.tag.fontSize = 10 * (int)m;
+            // this.tag.fontSize = 10 * ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1] / 10000;
+            //this.tag.fontSize = 50;
             //this.tag.fontSize =10 * ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1] / 1000;
+            this.tag.fontSize = 100;
             if (this.tag.fontSize > maxfont)
             {
                 this.tag.fontSize = maxfont;
@@ -36,6 +38,10 @@ public class hashtag : MonoBehaviour {
                 this.tag.fontSize = minfont;
             }
         }
+    }
+    // Update is called once per frame
+    void Update() {
+       
         
 	}
 }

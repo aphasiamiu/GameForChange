@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scoreboard.unity
     guid: 382dd10e7f644d147a97f7f791515573
+  - enabled: 1
+    path: Assets/Scenes/hashtag.unity
+    guid: 34d1abe7dae7b314bbac12b4b88d88a8

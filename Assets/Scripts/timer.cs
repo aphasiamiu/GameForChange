@@ -27,7 +27,9 @@ public class timer : MonoBehaviour {
             min = all / 60;
             sec = all % 60;
         }
-
-        time.GetComponent<Text>().text = min.ToString() + ":"+ sec.ToString();
+        if (sec >= 10)
+        { time.GetComponent<Text>().text = min.ToString() + ":" + sec.ToString(); }
+        if (sec < 10) { time.GetComponent<Text>().text = min.ToString() + ":0" + sec.ToString(); }
+        //time.GetComponent<Text>().text =Time.time.ToString();
     }
 }

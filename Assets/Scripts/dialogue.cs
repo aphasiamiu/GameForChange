@@ -12,19 +12,19 @@ public class dialogue : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (finger.GetComponent<RectTransform>().localPosition.y > 150)
+        if (finger.GetComponent<RectTransform>().localPosition.y > 100)
         {
             talk.GetComponent<Text>().text = "Don't worry people, we're gonna take care of this.";
         }
-        if (finger.GetComponent<RectTransform>().localPosition.y <= 150 & finger.GetComponent<RectTransform>().localPosition.y > 50)
+        if (finger.GetComponent<RectTransform>().localPosition.y <= 100 & finger.GetComponent<RectTransform>().localPosition.y > 0)
         {
             talk.GetComponent<Text>().text = "I'm gonna protect this country and everything we love about it!";
         }
-        if (finger.GetComponent<RectTransform>().localPosition.y <= 50 & finger.GetComponent<RectTransform>().localPosition.y > -50)
+        if (finger.GetComponent<RectTransform>().localPosition.y <= 0 & finger.GetComponent<RectTransform>().localPosition.y > -70)
         {
             talk.GetComponent<Text>().text = "All of our enemies? BAM! Right off the map. Wouldn't that be nice?";
         }
-        if (finger.GetComponent<RectTransform>().localPosition.y <= -50)
+        if (finger.GetComponent<RectTransform>().localPosition.y <= -70)
         {
             talk.GetComponent<Text>().text = "So get ready folks, this thing is gonna be HUGE!";
         }

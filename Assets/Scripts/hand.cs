@@ -25,11 +25,11 @@ public class hand : MonoBehaviour {
        
         float TranslateSpeed = 0.1f;
         cap = 0.5 * transratio * ReadSelectedUser.Instance.sum * heartratio / 14.0;
-        if(max<cap)
+        if(max<=cap & this.GetComponent<RectTransform>().localPosition.y >-100)
         {
             this.transform.Translate(Vector3.down * TranslateSpeed);
         }
-        else
+        if(max>cap & this.GetComponent<RectTransform>().localPosition.y <170)
         { 
             this.transform.Translate(Vector3.up * TranslateSpeed);
         }
