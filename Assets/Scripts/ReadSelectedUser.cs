@@ -94,7 +94,7 @@ public class ReadSelectedUser : MonoBehaviour
     }
     void Update()
     {
-        if (Time.time - time > 1)
+        if (Time.time - time > 0.5)
         {
             time = Time.time;
             StartCoroutine(GetText());
@@ -103,14 +103,29 @@ public class ReadSelectedUser : MonoBehaviour
                 sortnames[i] = names[i];
                 sortpoints[i] = points[i];
             }
-            sortpoints.Sort((x, y) => -x.CompareTo(y));
             for (int i = 0; i < points.Count; i = i + 1)
             {
-                for (int j = 0; j < points.Count; j = j + 1)
-                    if (sortpoints[i] == points[j]){
-                    sortnames[i] = names[j];
+                for (int j = i+1; j < points.Count; j = j + 1)
+                {
+                    if(sortpoints[i]<sortpoints[j])
+                    {
+                        int tmp = sortpoints[j];
+                        sortpoints[j] = sortpoints[i];
+                        sortpoints[i] = tmp;
+                        string tmp2 = sortnames[j];
+                        sortnames[j] = sortnames[i];
+                        sortnames[i] = tmp2;
+                    }
                 }
             }
+            //sortpoints.Sort((x, y) => -x.CompareTo(y));
+            //for (int i = 0; i < points.Count; i = i + 1)
+            //{
+            //    for (int j = 0; j < points.Count; j = j + 1)
+            //        if (sortpoints[i] == points[j]){
+            //        sortnames[i] = names[j];
+            //    }
+            //}
 
         }
         if (Input.GetKeyDown(KeyCode.A))
