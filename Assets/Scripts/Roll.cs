@@ -16,7 +16,32 @@ public class Roll : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        
+        if(Time.time - t < 0.5)
+        {
+            Color color = name.GetComponent<Text>().color;
+            color.a = Mathf.Abs((Time.time - t) / 0.5f);
+            name.GetComponent<Text>().color = color;
+            Color color2 = name.transform.parent.Find("score").GetComponent<Text>().color;
+            color2.a = Mathf.Abs((Time.time - t) / 0.5f);
+            name.transform.parent.Find("score").GetComponent<Text>().color = color2;
+            Color color3 = name.transform.parent.Find("Ranking").GetComponent<Text>().color;
+            color3.a = Mathf.Abs((Time.time - t) / 0.5f);
+            name.transform.parent.Find("Ranking").GetComponent<Text>().color = color3;
+        }
+        if (Time.time - t > 2.5)
+        {
+            Color color = name.GetComponent<Text>().color;
+            color.a = Mathf.Abs((Time.time - t - 3.0f) / 0.5f);
+            name.GetComponent<Text>().color = color;
+            Color color2 = name.transform.parent.Find("score").GetComponent<Text>().color;
+            color2.a = Mathf.Abs((Time.time - t - 3.0f) / 0.5f);
+            name.transform.parent.Find("score").GetComponent<Text>().color = color2;
+            Color color3 = name.transform.parent.Find("Ranking").GetComponent<Text>().color;
+            color3.a = Mathf.Abs((Time.time - t - 3.0f) / 0.5f);
+            name.transform.parent.Find("Ranking").GetComponent<Text>().color = color3;
+        }
+
+
         if (Time.time - t > 3) {
             t = Time.time;
            
