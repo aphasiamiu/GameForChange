@@ -49,7 +49,7 @@ public class ReadSelectedUser : MonoBehaviour
     {
         while (true)
         {
-            UnityWebRequest r = UnityWebRequest.Get("https://etc-newscan.appspot.com/unity-read2");
+            UnityWebRequest r = UnityWebRequest.Get("http://etc-newscan-test.appspot.com/unity-read2");
             yield return r.Send();
             
             var N = JSONObject.Parse(r.downloadHandler.text);
