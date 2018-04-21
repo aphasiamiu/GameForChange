@@ -92,17 +92,17 @@ public class ReadSelectedUser : MonoBehaviour
             }
 
             /*update data in the list */
-            for (int m = 0; m < j; m = m + 1)
+            for (int m = 0; m <= j; m = m + 1)
             {
                 hashpoints[m]= N["hashpoints"][m];
             }
-            for (int m = 0; m < i; m = m + 1)
+            for (int m = 0; m <= i; m = m + 1)
             {
                 names[m] = N["names"][m];
                 points[m] = N["points"][m];
             }
             readyStage = true;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(3);
         }
     }
     void Update()

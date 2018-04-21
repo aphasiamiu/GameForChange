@@ -8,6 +8,7 @@ public class hashtag : MonoBehaviour {
     public float t;
     public int maxfont = 100;
     public int minfont = 10;
+    private float currentVal = 0;
     // Use this for initialization
     void Start () {
         t = Time.time;
@@ -16,30 +17,17 @@ public class hashtag : MonoBehaviour {
     {
         if (ReadSelectedUser.Instance.readyStage)
         {
+            currentVal = ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1];
             tag.GetComponent<Text>().text = ReadSelectedUser.Instance.hashtags[int.Parse(transform.parent.name) - 1];
-            if (Time.time - t > 0.1)
-            {
-                t = Time.time;
-                int i = Random.Range(-10, 10);
-                float m = 1.0f;
-                for (int p = 0; p < ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1] / 10000; p++)
-                {
-                    m = m * 1.05f;
-                }
-                // this.tag.fontSize = 10 * (int)m;
-                this.tag.fontSize = 10 * ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1] / 10000;
-                //this.tag.fontSize = 50;
-                //this.tag.fontSize =10 * ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1] / 1000;
-                //this.tag.fontSize = 100;
-                if (this.tag.fontSize > maxfont)
-                {
-                    this.tag.fontSize = maxfont;
-                }
-                if (this.tag.fontSize < minfont)
-                {
-                    this.tag.fontSize = minfont;
-                }
-            }
+            this.tag.fontSize = (int)(minfont + Mathf.Sqrt(currentVal) / 15);
+        }
+        if(currentVal > hand.Instance.cap)
+        {
+            this.tag.color = Color.red;
+        }
+        else
+        {
+            this.tag.color = Color.blue;
         }
     }
     // Update is called once per frame
