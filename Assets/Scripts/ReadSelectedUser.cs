@@ -13,11 +13,16 @@ public class ReadSelectedUser : MonoBehaviour
     public float time;
     public int i = 0;
     public int j = 0;
+    public int k = 0;
     public double sum;
     public List<string> names = new List<string>();
     public List<int> points = new List<int>();
     public List<string> sortnames = new List<string>();
     public List<int> sortpoints = new List<int>();
+    public List<string> scorenames = new List<string>();
+    public List<int> scorepoints = new List<int>();
+    public List<string> sortscorenames = new List<string>();
+    public List<int> sortscorepoints = new List<int>();
     public List<int> hashpoints = new List<int>();
     public List<string> hashtags = new List<string>();
     public GameObject text;
@@ -85,6 +90,32 @@ public class ReadSelectedUser : MonoBehaviour
                 }
                 i = N["names"].Count-1;
             }
+            if (k < N["scorenames"].Count - 1)
+            {
+                int tmp;
+                if (k == 0)
+                {
+                    tmp = k;
+                }
+                else
+                {
+                    tmp = k + 1;
+                }
+                for (int m = tmp; m < N["scorenames"].Count; m++)
+                {
+                    string name = N["scorenames"][m];
+                    scorenames.Add(name);
+                    sortscorenames.Add("");
+                }
+
+                for (int m = tmp; m < N["scorepoints"].Count; m++)
+                {
+                    int scorepoint = N["scorepoints"][m];
+                    scorepoints.Add(scorepoint);
+                    sortscorepoints.Add(0);
+                }
+                k = N["scorenames"].Count - 1;
+            }
             /*Add new hashtags.hashpoints to list*/
             if (j < N["hashtags"].Count-1)
             {
@@ -120,6 +151,11 @@ public class ReadSelectedUser : MonoBehaviour
                 names[m] = N["names"][m];
                 points[m] = N["points"][m];
             }
+            for (int m = 0; m <= k; m = m + 1)
+            {
+                scorenames[m] = N["scorenames"][m];
+                scorepoints[m] = N["scorepoints"][m];
+            }
             readyStage = true;
             yield return new WaitForSeconds(3);
         }
@@ -149,16 +185,29 @@ public class ReadSelectedUser : MonoBehaviour
                     }
                 }
             }
-            //sortpoints.Sort((x, y) => -x.CompareTo(y));
-            //for (int i = 0; i < points.Count; i = i + 1)
-            //{
-            //    for (int j = 0; j < points.Count; j = j + 1)
-            //        if (sortpoints[i] == points[j]){
-            //        sortnames[i] = names[j];
-            //    }
-            //}
 
+            for (int i = 0; i < scorepoints.Count; i = i + 1)
+            {
+                sortscorenames[i] = scorenames[i];
+                sortscorepoints[i] = scorepoints[i];
+            }
+            for (int i = 0; i < scorepoints.Count; i = i + 1)
+            {
+                for (int j = i + 1; j < scorepoints.Count; j = j + 1)
+                {
+                    if (sortscorepoints[i] < sortscorepoints[j])
+                    {
+                        int tmp = sortscorepoints[j];
+                        sortscorepoints[j] = sortscorepoints[i];
+                        sortscorepoints[i] = tmp;
+                        string tmp2 = sortscorenames[j];
+                        sortscorenames[j] = sortscorenames[i];
+                        sortscorenames[i] = tmp2;
+                    }
+                }
+            }
         }
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             Application.LoadLevel(Application.loadedLevelName);
