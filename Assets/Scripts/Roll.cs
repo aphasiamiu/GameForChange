@@ -6,10 +6,11 @@ public class Roll : MonoBehaviour {
     
     public GameObject name;
     public int current;
-    float t = Time.time;
+    float t;
   
     void Start()
     {
+        t = Time.time;
         name = gameObject;
         current = int.Parse(transform.parent.name) - 1;
     }
