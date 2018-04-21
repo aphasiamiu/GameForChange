@@ -9,6 +9,11 @@ public class hashtag : MonoBehaviour {
     public int maxfont = 100;
     public int minfont = 10;
     private float currentVal = 0;
+    private int currentFontSize = 10;
+    private int prevFontSize = 10;
+    private float lerptime = 3;
+    private bool startLerp = false;
+    private float lerp = 0f;
     // Use this for initialization
     void Start () {
         t = Time.time;
@@ -19,7 +24,13 @@ public class hashtag : MonoBehaviour {
         {
             currentVal = ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1];
             tag.GetComponent<Text>().text = ReadSelectedUser.Instance.hashtags[int.Parse(transform.parent.name) - 1];
-            this.tag.fontSize = (int)(minfont + Mathf.Sqrt(currentVal) / 15);
+            int fs = (int)(minfont + Mathf.Sqrt(currentVal) / 7);
+            if(fs != currentFontSize)
+            {
+                prevFontSize = currentFontSize;
+                currentFontSize = fs;
+                startLerp = true;
+            }
         }
         if(currentVal > hand.Instance.cap)
         {
@@ -32,7 +43,16 @@ public class hashtag : MonoBehaviour {
     }
     // Update is called once per frame
     void Update() {
-       
+       if(startLerp)
+        {
+            lerp += Time.deltaTime / 2;
+            this.tag.fontSize = (int)Mathf.Lerp(prevFontSize,currentFontSize, lerp);
+        }
+       if(prevFontSize==currentFontSize)
+        {
+            startLerp = false;
+            lerp = 0;
+        }
         
 	}
 }
