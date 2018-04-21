@@ -19,16 +19,16 @@ public class hashtag : MonoBehaviour {
         {
             t = Time.time;
             int i = Random.Range(-10, 10);
-            // float m = 1.0f;
-            // for (int p = 0; p < ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1] / 10000; p++)
-            // {
-            //     m = m * 1.05f;
-            // }
-            //// this.tag.fontSize = 10 * (int)m;
-            // this.tag.fontSize = 10 * ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1] / 10000;
+            float m = 1.0f;
+            for (int p = 0; p < ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1] / 10000; p++)
+            {
+                m = m * 1.05f;
+            }
+            // this.tag.fontSize = 10 * (int)m;
+            this.tag.fontSize = 10 * ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1] / 10000;
             //this.tag.fontSize = 50;
             //this.tag.fontSize =10 * ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1] / 1000;
-            this.tag.fontSize = 100;
+            //this.tag.fontSize = 100;
             if (this.tag.fontSize > maxfont)
             {
                 this.tag.fontSize = maxfont;

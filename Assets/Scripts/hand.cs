@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class hand : MonoBehaviour {
-    public double cap;
+    public static double cap=0;
     public double transratio = 0.01;
     public double heartratio = 6.0;
     public GameObject finger;
