@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class ReadSelectedUser : MonoBehaviour
 {
     public static ReadSelectedUser Instance;
-    public static bool readyStage=false;
+    public bool readyStage=false;
     public float time;
     public int i = 0;
     public int j = 0;
