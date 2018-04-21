@@ -10,6 +10,7 @@ public class dialogue : MonoBehaviour {
     public List<string> tags;
     private Dictionary<string, string> _dialogDic;
     public List<bool> _flags;
+    public bool flag = false;
     // Use this for initialization
     void Start () {
         _flags = new List<bool>();
@@ -28,6 +29,14 @@ public class dialogue : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        for(int i = 0; i<ReadSelectedUser.Instance.hashtags.Count; i = i + 1)
+        {
+            tags[i] = ReadSelectedUser.Instance.hashtags[i];
+        }
+        if (ReadSelectedUser.Instance.hashpoints[0] > hand.Instance.cap)
+        {
+            talk.GetComponent<Text>().text = ReadSelectedUser.Instance.hashtags[0];
+        }
         if (finger.GetComponent<RectTransform>().localPosition.y > 100 &&!_flags[0])
         {
             talk.GetComponent<Text>().text = "Don't worry people, we're gonna take care of this.";
