@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class ReadSelectedUser : MonoBehaviour
 {
     public static ReadSelectedUser Instance;
+    public bool readyStage=false;
     public float time;
     public int i = 0;
     public int j = 0;
@@ -22,7 +23,7 @@ public class ReadSelectedUser : MonoBehaviour
     public GameObject text;
     private int startNum;
     private int count;
-    private bool startflag;
+    private bool startflag=false;
 
     private void Awake()
     {
@@ -49,47 +50,59 @@ public class ReadSelectedUser : MonoBehaviour
     {
         while (true)
         {
+            /*Request to server for getting data*/
             UnityWebRequest r = UnityWebRequest.Get("http://etc-newscan-test.appspot.com/unity-read2");
             yield return r.Send();
             
             var N = JSONObject.Parse(r.downloadHandler.text);
-         
-            string name = N["names"][i];
-            int point = N["points"][i];
-            string hashtag = N["hashtags"][j];
-            int hashpoint = N["hashpoints"][j];
-            
-            if (!(name == null)) {
-                sum += point;
-                names.Add(name);
-                points.Add(point);
-                sortnames.Add("");
-                sortpoints.Add(0);
-                i = i + 1;
-                //print(name);
-                //print(point);
-            }
-            if (!(hashtag == null))
+
+            /*Add new name,points to list*/
+            if (i < N["names"].Count-1)
             {
-                hashpoints.Add(hashpoint);
-                hashtags.Add(hashtag);
-                //sortnames.Add("");
-                //sortpoints.Add(0);
-                j = j + 1;
-                //print(name);
-                //print(point);
+                for (int m = i; m < N["names"].Count; m++)
+                {
+                    string name = N["names"][m];
+                    names.Add(name);
+                    sortnames.Add("");
+
+                }
+                for (int m = i; m < N["points"].Count; m++)
+                {
+                    int point = N["points"][m];
+                    sum += point;
+                    points.Add(point);
+                    sortpoints.Add(0);
+                }
+                i = N["names"].Count-1;
             }
-            for (int j = 0; j < i; j = j + 1)
+            /*Add new hashtags.hashpoints to list*/
+            if (j < N["hashtags"].Count-1)
             {
-                hashtags[j]= N["hashtags"][j];
-                hashpoints[j]= N["hashpoints"][j];
+                for (int m = j; m < N["hashtags"].Count; m++)
+                {
+                    string hashtag = N["hashtags"][m];
+                    hashtags.Add(hashtag);
+                }
+                for (int m = j; m < N["hashpoints"].Count; m++)
+                {
+                    int hashpoint = N["hashpoints"][m];
+                    hashpoints.Add(hashpoint);
+                }
+                j = N["hashtags"].Count-1;
             }
-            for (int j = 0; j < i; j = j + 1)
+
+            /*update data in the list */
+            for (int m = 0; m <= j; m = m + 1)
             {
-                names[j] = N["names"][j];
-                points[j] = N["points"][j];
+                hashpoints[m]= N["hashpoints"][m];
             }
-            // yield return new WaitForSeconds(1);
+            for (int m = 0; m <= i; m = m + 1)
+            {
+                names[m] = N["names"][m];
+                points[m] = N["points"][m];
+            }
+            readyStage = true;
+            yield return new WaitForSeconds(3);
         }
     }
     void Update()
@@ -97,7 +110,6 @@ public class ReadSelectedUser : MonoBehaviour
         if (Time.time - time > 0.5)
         {
             time = Time.time;
-            StartCoroutine(GetText());
             for (int i = 0; i < points.Count; i = i + 1)
             {
                 sortnames[i] = names[i];

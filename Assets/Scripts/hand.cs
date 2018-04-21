@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class hand : MonoBehaviour {
-    public double cap;
+    public static hand Instance;
+    public double cap=0;
     public double transratio = 0.01;
     public double heartratio = 6.0;
     public GameObject finger;
@@ -12,9 +13,13 @@ public class hand : MonoBehaviour {
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Awake()
+    {
+        if (Instance == null) Instance = this;
+    }
+
+    // Update is called once per frame
+    void Update () {
         for(int i = 0;i < ReadSelectedUser.Instance.hashpoints.Count;i++)
         {
             if (ReadSelectedUser.Instance.hashpoints[i]>max)

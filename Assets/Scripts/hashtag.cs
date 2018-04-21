@@ -8,40 +8,51 @@ public class hashtag : MonoBehaviour {
     public float t;
     public int maxfont = 100;
     public int minfont = 10;
+    private float currentVal = 0;
+    private int currentFontSize = 10;
+    private int prevFontSize = 10;
+    private float lerptime = 3;
+    private bool startLerp = false;
+    private float lerp = 0f;
     // Use this for initialization
     void Start () {
         t = Time.time;
 	}
     private void FixedUpdate()
     {
-        tag.GetComponent<Text>().text = ReadSelectedUser.Instance.hashtags[int.Parse(transform.parent.name) - 1];
-        if (Time.time - t > 0.1)
+        if (ReadSelectedUser.Instance.readyStage)
         {
-            t = Time.time;
-            int i = Random.Range(-10, 10);
-            // float m = 1.0f;
-            // for (int p = 0; p < ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1] / 10000; p++)
-            // {
-            //     m = m * 1.05f;
-            // }
-            //// this.tag.fontSize = 10 * (int)m;
-            // this.tag.fontSize = 10 * ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1] / 10000;
-            //this.tag.fontSize = 50;
-            //this.tag.fontSize =10 * ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1] / 1000;
-            this.tag.fontSize = 100;
-            if (this.tag.fontSize > maxfont)
+            currentVal = ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1];
+            tag.GetComponent<Text>().text = ReadSelectedUser.Instance.hashtags[int.Parse(transform.parent.name) - 1];
+            int fs = (int)(minfont + Mathf.Sqrt(currentVal) / 7);
+            if(fs != currentFontSize)
             {
-                this.tag.fontSize = maxfont;
+                prevFontSize = currentFontSize;
+                currentFontSize = fs;
+                startLerp = true;
             }
-            if (this.tag.fontSize < minfont)
-            {
-                this.tag.fontSize = minfont;
-            }
+        }
+        if(currentVal > hand.Instance.cap)
+        {
+            this.tag.color = Color.red;
+        }
+        else
+        {
+            this.tag.color = Color.blue;
         }
     }
     // Update is called once per frame
     void Update() {
-       
+       if(startLerp)
+        {
+            lerp += Time.deltaTime / 2;
+            this.tag.fontSize = (int)Mathf.Lerp(prevFontSize,currentFontSize, lerp);
+        }
+       if(prevFontSize==currentFontSize)
+        {
+            startLerp = false;
+            lerp = 0;
+        }
         
 	}
 }
