@@ -34,11 +34,13 @@ public class hashtag : MonoBehaviour {
         }
         if(currentVal > hand.Instance.cap)
         {
-            this.tag.color = Color.red;
+            //this.tag.color = Color.red;
+            this.tag.color = new Color(1, 1, 1, 1);
         }
         else
         {
-            this.tag.color = Color.blue;
+            //this.tag.color = Color.blue;
+            this.tag.color = new Color(0.35F, 0.6F, 0.86F, 1);
         }
     }
     // Update is called once per frame
