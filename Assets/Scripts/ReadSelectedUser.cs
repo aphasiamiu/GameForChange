@@ -59,14 +59,24 @@ public class ReadSelectedUser : MonoBehaviour
             /*Add new name,points to list*/
             if (i < N["names"].Count-1)
             {
-                for (int m = i; m < N["names"].Count; m++)
+                int tmp;
+                if(i==0)
+                {
+                    tmp = i;
+                }
+                else
+                {
+                    tmp = i + 1;
+                }
+                for (int m=tmp; m < N["names"].Count; m++)
                 {
                     string name = N["names"][m];
                     names.Add(name);
                     sortnames.Add("");
 
                 }
-                for (int m = i; m < N["points"].Count; m++)
+
+                for (int m = tmp; m < N["points"].Count; m++)
                 {
                     int point = N["points"][m];
                     sum += point;
@@ -78,12 +88,21 @@ public class ReadSelectedUser : MonoBehaviour
             /*Add new hashtags.hashpoints to list*/
             if (j < N["hashtags"].Count-1)
             {
-                for (int m = j; m < N["hashtags"].Count; m++)
+                int tmp;
+                if (j == 0)
+                {
+                    tmp = j;
+                }
+                else
+                {
+                    tmp = j + 1;
+                }
+                for (int m = tmp; m < N["hashtags"].Count; m++)
                 {
                     string hashtag = N["hashtags"][m];
                     hashtags.Add(hashtag);
                 }
-                for (int m = j; m < N["hashpoints"].Count; m++)
+                for (int m = tmp; m < N["hashpoints"].Count; m++)
                 {
                     int hashpoint = N["hashpoints"][m];
                     hashpoints.Add(hashpoint);
