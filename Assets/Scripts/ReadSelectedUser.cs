@@ -62,102 +62,109 @@ public class ReadSelectedUser : MonoBehaviour
             var N = JSONObject.Parse(r.downloadHandler.text);
 
             /*Add new name,points to list*/
-            if (i < N["names"].Count-1)
+            if (N["names"].Count > 1)
             {
-                int tmp;
-                if(i==0)
+                if (i < N["names"].Count - 1)
                 {
-                    tmp = i;
-                }
-                else
-                {
-                    tmp = i + 1;
-                }
-                for (int m=tmp; m < N["names"].Count; m++)
-                {
-                    string name = N["names"][m];
-                    names.Add(name);
-                    sortnames.Add("");
+                    int tmp;
+                    if (i == 0)
+                    {
+                        tmp = i;
+                    }
+                    else
+                    {
+                        tmp = i + 1;
+                    }
+                    for (int m = tmp; m < N["names"].Count; m++)
+                    {
+                        string name = N["names"][m];
+                        names.Add(name);
+                        sortnames.Add("");
 
+                    }
+
+                    for (int m = tmp; m < N["points"].Count; m++)
+                    {
+                        int point = N["points"][m];
+                        sum += point;
+                        points.Add(point);
+                        sortpoints.Add(0);
+                    }
+                    i = N["names"].Count - 1;
+                }
+             /*   if (N["scorenames"].Count>0 && k < N["scorenames"].Count - 1)
+                {
+                    int tmp;
+                    if (k == 0)
+                    {
+                        tmp = k;
+                    }
+                    else
+                    {
+                        tmp = k + 1;
+                    }
+                    for (int m = tmp; m < N["scorenames"].Count; m++)
+                    {
+                        string name = N["scorenames"][m];
+                        scorenames.Add(name);
+                        sortscorenames.Add("");
+                    }
+
+                    for (int m = tmp; m < N["scorepoints"].Count; m++)
+                    {
+                        int scorepoint = N["scorepoints"][m];
+                        scorepoints.Add(scorepoint);
+                        sortscorepoints.Add(0);
+                    }
+                    k = N["scorenames"].Count - 1;
+                }
+                */
+                /*Add new hashtags.hashpoints to list*/
+                if (j < N["hashtags"].Count - 1)
+                {
+                    int tmp;
+                    if (j == 0)
+                    {
+                        tmp = j;
+                    }
+                    else
+                    {
+                        tmp = j + 1;
+                    }
+                    for (int m = tmp; m < N["hashtags"].Count; m++)
+                    {
+                        string hashtag = N["hashtags"][m];
+                        hashtags.Add(hashtag);
+                    }
+                    for (int m = tmp; m < N["hashpoints"].Count; m++)
+                    {
+                        int hashpoint = N["hashpoints"][m];
+                        hashpoints.Add(hashpoint);
+                    }
+                    j = N["hashtags"].Count - 1;
                 }
 
-                for (int m = tmp; m < N["points"].Count; m++)
+                /*update data in the list */
+                for (int m = 0; m <= j; m = m + 1)
                 {
-                    int point = N["points"][m];
-                    sum += point;
-                    points.Add(point);
-                    sortpoints.Add(0);
+                    hashpoints[m] = N["hashpoints"][m];
                 }
-                i = N["names"].Count-1;
+                for (int m = 0; m <= i; m = m + 1)
+                {
+                    names[m] = N["names"][m];
+                    points[m] = N["points"][m];
+                }
+             /*   if (N["scorenames"].Count > 0)
+                {
+                    for (int m = 0; m <= k; m = m + 1)
+                    {
+                        scorenames[m] = N["scorenames"][m];
+                        scorepoints[m] = N["scorepoints"][m];
+                    }
+                }*/
+                readyStage = true;
+                yield return new WaitForSeconds(3);
             }
-            if (k < N["scorenames"].Count - 1)
-            {
-                int tmp;
-                if (k == 0)
-                {
-                    tmp = k;
-                }
-                else
-                {
-                    tmp = k + 1;
-                }
-                for (int m = tmp; m < N["scorenames"].Count; m++)
-                {
-                    string name = N["scorenames"][m];
-                    scorenames.Add(name);
-                    sortscorenames.Add("");
-                }
-
-                for (int m = tmp; m < N["scorepoints"].Count; m++)
-                {
-                    int scorepoint = N["scorepoints"][m];
-                    scorepoints.Add(scorepoint);
-                    sortscorepoints.Add(0);
-                }
-                k = N["scorenames"].Count - 1;
-            }
-            /*Add new hashtags.hashpoints to list*/
-            if (j < N["hashtags"].Count-1)
-            {
-                int tmp;
-                if (j == 0)
-                {
-                    tmp = j;
-                }
-                else
-                {
-                    tmp = j + 1;
-                }
-                for (int m = tmp; m < N["hashtags"].Count; m++)
-                {
-                    string hashtag = N["hashtags"][m];
-                    hashtags.Add(hashtag);
-                }
-                for (int m = tmp; m < N["hashpoints"].Count; m++)
-                {
-                    int hashpoint = N["hashpoints"][m];
-                    hashpoints.Add(hashpoint);
-                }
-                j = N["hashtags"].Count-1;
-            }
-
-            /*update data in the list */
-            for (int m = 0; m <= j; m = m + 1)
-            {
-                hashpoints[m]= N["hashpoints"][m];
-            }
-            for (int m = 0; m <= i; m = m + 1)
-            {
-                names[m] = N["names"][m];
-                points[m] = N["points"][m];
-            }
-            for (int m = 0; m <= k; m = m + 1)
-            {
-                scorenames[m] = N["scorenames"][m];
-                scorepoints[m] = N["scorepoints"][m];
-            }
-            readyStage = true;
-            yield return new WaitForSeconds(3);
         }
     }
     void Update()
