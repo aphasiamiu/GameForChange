@@ -13,14 +13,14 @@ public class color : MonoBehaviour {
 	void Update () {
         if (Bar.GetComponent<RectTransform>().localPosition.y < 0)
         {
-            this.GetComponent<Image>().color = Color.red;
+            this.GetComponent<Image>().color = new Color32(255, 77, 84, 255);
         }
         if (Bar.GetComponent<RectTransform>().localPosition.y < -200) {
-            this.GetComponent<Image>().color = Color.blue;
+            this.GetComponent<Image>().color = new Color32(66, 226, 255, 255);
         }
         if (Bar.GetComponent<RectTransform>().localPosition.y < -400)
         {
-            this.GetComponent<Image>().color = Color.black;
+            this.GetComponent<Image>().color = new Color32(143, 226, 255, 255);
         }
     }
 }
