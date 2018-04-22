@@ -11,6 +11,10 @@ public class color : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Bar.GetComponent<RectTransform>().localPosition.y < 0)
+        {
+            this.GetComponent<Image>().color = Color.red;
+        }
         if (Bar.GetComponent<RectTransform>().localPosition.y < -200) {
             this.GetComponent<Image>().color = Color.blue;
         }
