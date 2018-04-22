@@ -56,7 +56,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.58796495, g: 0.8094948, b: 0.9191176, a: 1}
+  m_Color: {r: 0.34901962, g: 0.60784316, b: 0.85882354, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -70,13 +70,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: '#DogIsCute'
+    m_LineSpacing: 0.6
+  m_Text: '#LoL'
 --- !u!222 &222788703484367442
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -98,6 +98,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -102, y: 272}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_AnchoredPosition: {x: -79, y: 266}
+  m_SizeDelta: {x: 500, y: 220.1}
   m_Pivot: {x: 0.5, y: 0.5}
