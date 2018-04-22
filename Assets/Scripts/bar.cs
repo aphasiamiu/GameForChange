@@ -2,21 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class hand : MonoBehaviour {
-    public static hand Instance;
+public class bar : MonoBehaviour {
+    public static bar Instance;
     public double cap=0;
     public double transratio = 0.01;
     public double heartratio = 6.0;
-    public GameObject finger;
+    public GameObject Bar;
     public int max = 0;
 	// Use this for initialization
 	void Start () {
 		
 	}
-    void Awake()
-    {
-        if (Instance == null) Instance = this;
-    }
+   
 
     // Update is called once per frame
     void Update () {
@@ -29,13 +26,13 @@ public class hand : MonoBehaviour {
             }
         }
        
-        float TranslateSpeed = 0.01f;
+        float TranslateSpeed = 0.005f;
         cap = 0.5 * transratio * ReadSelectedUser.Instance.sum * heartratio / 14.0;
-        if(max<=cap & this.GetComponent<RectTransform>().localPosition.y >-190)
+        if(max>=cap & this.GetComponent<RectTransform>().localPosition.y >-600)
         {
             this.transform.Translate(Vector3.down * TranslateSpeed);
         }
-        if(max>cap & this.GetComponent<RectTransform>().localPosition.y <-150)
+        if(max<cap & this.GetComponent<RectTransform>().localPosition.y <0)
         { 
             this.transform.Translate(Vector3.up * TranslateSpeed);
         }

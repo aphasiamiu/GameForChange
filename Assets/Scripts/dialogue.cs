@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 public class dialogue : MonoBehaviour {
     float t;
     public GameObject finger;
@@ -32,7 +31,7 @@ public class dialogue : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         flag = false;
-        if (Time.time - t > 2)
+        if (Time.time - t > 5)
         {
             t = Time.time;
             for (int i = 0; i < ReadSelectedUser.Instance.hashtags.Count; i = i + 1)
@@ -99,30 +98,19 @@ public class dialogue : MonoBehaviour {
             {
                 talk.GetComponent<Text>().text = "We need more jobs, and we need them right here in AMERICA";
             }
-            if (finger.GetComponent<RectTransform>().localPosition.y > 100 && !_flags[0] && flag == false)
+            if (flag == false)
             {
+                int i = Random.Range(0, 4);
+                if (i==0)
                 talk.GetComponent<Text>().text = "Don't worry people, we're gonna take care of this.";
-                _flags[0] = true;
-                setFalseExcept(0);
+                if (i==1)
+                    talk.GetComponent<Text>().text = "I'm gonna protect this country and everything we love about it!";
+                if (i==2)
+                    talk.GetComponent<Text>().text = "All of our enemies? BAM! Right off the map. Wouldn't that be nice?";
+                if (i==3)
+                    talk.GetComponent<Text>().text = "So get ready folks, this thing is gonna be HUGE!";
             }
-            if (finger.GetComponent<RectTransform>().localPosition.y <= 100 & finger.GetComponent<RectTransform>().localPosition.y > 0 && !_flags[1] && flag == false)
-            {
-                _flags[1] = true;
-                setFalseExcept(1);
-                talk.GetComponent<Text>().text = "I'm gonna protect this country and everything we love about it!";
-            }
-            if (finger.GetComponent<RectTransform>().localPosition.y <= 0 & finger.GetComponent<RectTransform>().localPosition.y > -70 && !_flags[2] && flag == false)
-            {
-                _flags[2] = true;
-                setFalseExcept(2);
-                talk.GetComponent<Text>().text = "All of our enemies? BAM! Right off the map. Wouldn't that be nice?";
-            }
-            if (finger.GetComponent<RectTransform>().localPosition.y <= -70 && !_flags[3] && flag == false)
-            {
-                _flags[3] = true;
-                setFalseExcept(3);
-                talk.GetComponent<Text>().text = "So get ready folks, this thing is gonna be HUGE!";
-            }
+           
         }
         
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class timer : MonoBehaviour {
+    public static timer Instance;
     public float t;
     public int all = 300;
     public int min;
