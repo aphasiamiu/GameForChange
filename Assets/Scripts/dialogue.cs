@@ -40,64 +40,81 @@ public class dialogue : MonoBehaviour {
                 if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap)
                 {
                     flag = true;
+                    if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap && string.Equals(ReadSelectedUser.Instance.hashtags[i], "#LOL"))
+                    {
+                        talk.GetComponent<Text>().text = "I love how kids talk nowadays, ROFL!";
+                    }
+                    if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap && string.Equals(ReadSelectedUser.Instance.hashtags[i], "#USA"))
+                    {
+                        talk.GetComponent<Text>().text = "Greatest country on the planet, aren’t I right, ladies and gentlemen?";
+                    }
+                    if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap && string.Equals(ReadSelectedUser.Instance.hashtags[i], "#ThePeopleLoveMe"))
+                    {
+                        talk.GetComponent<Text>().text = "Not surprising, considering my extremely SMART brain!";
+                    }
+                    if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap && string.Equals(ReadSelectedUser.Instance.hashtags[i], "#Winning"))
+                    {
+                        talk.GetComponent<Text>().text = "A lot of people said I couldn’t do it, but they were WRONG, and they’ll keep on being WRONG";
+                    }
+                    if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap && string.Equals(ReadSelectedUser.Instance.hashtags[i], "#DrillBabyDrill"))
+                    {
+                        talk.GetComponent<Text>().text = "Couldn’t agree more! We’ve got to get back into that bedrock and create more jobs!";
+                    }
+                    if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap && string.Equals(ReadSelectedUser.Instance.hashtags[i], "#Sad"))
+                    {
+                        talk.GetComponent<Text>().text = "TOO TRUE, this country is in a sorry state!";
+                    }
+                    if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap && string.Equals(ReadSelectedUser.Instance.hashtags[i], "#TheGreatest"))
+                    {
+                        talk.GetComponent<Text>().text = "Everyone knows it! I’ve got the greatest words, the best words.";
+                    }
+                    if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap && string.Equals(ReadSelectedUser.Instance.hashtags[i], "#PhonyPress"))
+                    {
+                        talk.GetComponent<Text>().text = "Right! They keep focusing on me, but they can’t handle the TRUTH.";
+                    }
+                    if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap && string.Equals(ReadSelectedUser.Instance.hashtags[i], "#Cute"))
+                    {
+                        talk.GetComponent<Text>().text = "This would look good on my Pinterest board!";
+                    }
+                    if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap && string.Equals(ReadSelectedUser.Instance.hashtags[i], "#PhonyPress"))
+                    {
+                        talk.GetComponent<Text>().text = "Right! They keep focusing on me, but they can’t handle the TRUTH.";
+                    }
+                    if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap && string.Equals(ReadSelectedUser.Instance.hashtags[i], "#Scandal"))
+                    {
+                        talk.GetComponent<Text>().text = "Oh look, it’s the DISHONEST media at it again.";
+                    }
+                    if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap && string.Equals(ReadSelectedUser.Instance.hashtags[i], "#WinnersOnly"))
+                    {
+                        talk.GetComponent<Text>().text = "So true! No room for LOSERS in this country!";
+                    }
+                    if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap && string.Equals(ReadSelectedUser.Instance.hashtags[i], "#Lolcats"))
+                    {
+                        talk.GetComponent<Text>().text = "Everyone knows I’m the best with cats, haven’t got scratched once, not even once!";
+                    }
+                    if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap && string.Equals(ReadSelectedUser.Instance.hashtags[i], "#Money"))
+                    {
+                        talk.GetComponent<Text>().text = "Now that I’m in charge, you’re going to start seeing a lot more of that around here!";
+                    }
+                    if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap && string.Equals(ReadSelectedUser.Instance.hashtags[i], "#BackInBlack"))
+                    {
+                        talk.GetComponent<Text>().text = "We need more jobs, and we need them right here in AMERICA";
+                    }
+                    if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap && string.Equals(ReadSelectedUser.Instance.hashtags[i], "inPOTUSweTRUST"))
+                    {
+                        talk.GetComponent<Text>().text = "Right! I won BIG, the American people are behind me!";
+                    }
+                    if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap && string.Equals(ReadSelectedUser.Instance.hashtags[i], "#Jobs"))
+                    {
+                        talk.GetComponent<Text>().text = "We need more jobs, and we need them right here in AMERICA.";
+                    }
+                    if (ReadSelectedUser.Instance.hashpoints[i] > hand.Instance.cap && string.Equals(ReadSelectedUser.Instance.hashtags[i], "#DontBeFooled"))
+                    {
+                        talk.GetComponent<Text>().text = "Dishonest crooks still hiding in our government and media, don’t listen to them!!";
+                    }
                 }
             }
-            if (ReadSelectedUser.Instance.hashpoints[0] > hand.Instance.cap)
-            {
-                talk.GetComponent<Text>().text = "I love how kids talk nowadays, ROFL!";
-            }
-            if (ReadSelectedUser.Instance.hashpoints[1] > hand.Instance.cap)
-            {
-                talk.GetComponent<Text>().text = "Greatest country on the planet, aren’t I right, ladies and gentlemen?";
-            }
-            if (ReadSelectedUser.Instance.hashpoints[2] > hand.Instance.cap)
-            {
-                talk.GetComponent<Text>().text = "Not surprising, considering my extremely SMART brain!";
-            }
-            if (ReadSelectedUser.Instance.hashpoints[3] > hand.Instance.cap)
-            {
-                talk.GetComponent<Text>().text = "A lot of people said I couldn’t do it, but they were WRONG, and they’ll keep on being WRONG";
-            }
-            if (ReadSelectedUser.Instance.hashpoints[4] > hand.Instance.cap)
-            {
-                talk.GetComponent<Text>().text = "Couldn’t agree more! We’ve got to get back into that bedrock and create more jobs!";
-            }
-            if (ReadSelectedUser.Instance.hashpoints[5] > hand.Instance.cap)
-            {
-                talk.GetComponent<Text>().text = "TOO TRUE, this country is in a sorry state!";
-            }
-            if (ReadSelectedUser.Instance.hashpoints[6] > hand.Instance.cap)
-            {
-                talk.GetComponent<Text>().text = "Everyone knows it! I’ve got the greatest words, the best words.";
-            }
-            if (ReadSelectedUser.Instance.hashpoints[7] > hand.Instance.cap)
-            {
-                talk.GetComponent<Text>().text = "Right! They keep focusing on me, but they can’t handle the TRUTH.";
-            }
-            if (ReadSelectedUser.Instance.hashpoints[8] > hand.Instance.cap)
-            {
-                talk.GetComponent<Text>().text = "This would look good on my Pinterest board!";
-            }
-            if (ReadSelectedUser.Instance.hashpoints[9] > hand.Instance.cap)
-            {
-                talk.GetComponent<Text>().text = "This would look good on my Pinterest board!";
-            }
-            if (ReadSelectedUser.Instance.hashpoints[10] > hand.Instance.cap)
-            {
-                talk.GetComponent<Text>().text = "Oh look, it’s the DISHONEST media at it again.";
-            }
-            if (ReadSelectedUser.Instance.hashpoints[11] > hand.Instance.cap)
-            {
-                talk.GetComponent<Text>().text = "So true! No room for LOSERS in this country!";
-            }
-            if (ReadSelectedUser.Instance.hashpoints[12] > hand.Instance.cap)
-            {
-                talk.GetComponent<Text>().text = "Everyone knows I’m the best with cats, haven’t got scratched once, not even once!";
-            }
-            if (ReadSelectedUser.Instance.hashpoints[13] > hand.Instance.cap)
-            {
-                talk.GetComponent<Text>().text = "We need more jobs, and we need them right here in AMERICA";
-            }
+            
             if (flag == false)
             {
                 int i = Random.Range(0, 4);

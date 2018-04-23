@@ -217,7 +217,11 @@ public class ReadSelectedUser : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            Application.LoadLevel(Application.loadedLevelName);
+            Application.LoadLevel("programming");
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Application.LoadLevel("hashtag");
         }
     }
        

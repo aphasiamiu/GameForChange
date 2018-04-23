@@ -24,7 +24,7 @@ public class hashtag : MonoBehaviour {
         {
             currentVal = ReadSelectedUser.Instance.hashpoints[int.Parse(transform.parent.name) - 1];
             tag.GetComponent<Text>().text = ReadSelectedUser.Instance.hashtags[int.Parse(transform.parent.name) - 1];
-            int fs = (int)(minfont + Mathf.Sqrt(currentVal) / 7);
+            int fs = (int)(minfont + Mathf.Sqrt(currentVal) / 20);
             if(fs != currentFontSize)
             {
                 prevFontSize = currentFontSize;
@@ -45,6 +45,7 @@ public class hashtag : MonoBehaviour {
     }
     // Update is called once per frame
     void Update() {
+       
        if(startLerp)
         {
             lerp += Time.deltaTime / 2;
