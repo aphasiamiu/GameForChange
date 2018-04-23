@@ -35,7 +35,7 @@ public class hashtag : MonoBehaviour {
         if(currentVal > hand.Instance.cap)
         {
             //this.tag.color = Color.red;
-            this.tag.color = new Color(1, 1, 1, 1);
+            this.tag.color = new Color(1, 0.5F, 0.18F, 1);
         }
         else
         {

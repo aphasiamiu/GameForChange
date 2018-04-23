@@ -6,7 +6,10 @@ public class RandomName : MonoBehaviour {
     
     public GameObject name;
     public float t;
-
+    public AudioSource cheer0;
+    public AudioSource cheer1;
+    public AudioSource cheer2;
+    
     void Start()
     {
         name = gameObject;
@@ -17,15 +20,17 @@ public class RandomName : MonoBehaviour {
         if(Time.time - t > 1)
         {
             t = Time.time;
-            name.GetComponent<Text>().text = ReadSelectedUser.Instance.sortnames[int.Parse(transform.parent.name) - 1];
-            name.transform.parent.Find("score").GetComponent<Text>().text = ReadSelectedUser.Instance.sortpoints[int.Parse(transform.parent.name) - 1].ToString();
+            if (name.transform.parent.Find("score").GetComponent<Text>().text!= ReadSelectedUser.Instance.sortpoints[int.Parse(transform.parent.name) - 1].ToString())
+            {
+                int r = Random.Range(0, 2);
+                if (r == 0) { cheer0.Play(); }
+                if (r == 1) { cheer1.Play(); }
+                if (r == 2) { cheer2.Play(); }
+                name.GetComponent<Text>().text = ReadSelectedUser.Instance.sortnames[int.Parse(transform.parent.name) - 1];
+                name.transform.parent.Find("score").GetComponent<Text>().text = ReadSelectedUser.Instance.sortpoints[int.Parse(transform.parent.name) - 1].ToString();
+            }
+            
         }
         
     }
-
-    //private void DisplayData()
-    //{
-    //    Debug.Log(ReadSelectedUser.Instance.names);
-    //    Debug.Log(ReadSelectedUser.Instance.points);
-    //}
 }
