@@ -57,7 +57,7 @@ public class ReadSelectedUser : MonoBehaviour
         {
             /*Request to server for getting data*/
             UnityWebRequest r = UnityWebRequest.Get("http://etc-newscan-test.appspot.com/unity-read2");
-            yield return r.Send();
+            yield return r.SendWebRequest();
             
             var N = JSONObject.Parse(r.downloadHandler.text);
 
