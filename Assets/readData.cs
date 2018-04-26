@@ -28,6 +28,9 @@ public class readData : MonoBehaviour
     private int count;
     private bool startflag = false;
     private GameObject generator;
+    private float timer = 3.0f;
+    private List<Vector3> prevPosition;
+
 
     private void Awake()
     {
@@ -43,6 +46,7 @@ public class readData : MonoBehaviour
         startflag = false;
         StartCoroutine(GetText());
         generator = GameObject.FindGameObjectWithTag("Generator");
+        prevPosition = new List<Vector3>();
     }
 
     IEnumerator SendPost(string _url, WWWForm _wform)
@@ -139,27 +143,50 @@ public class readData : MonoBehaviour
             tagList = generator.GetComponent<GenerateBar>().tagNameList;
             startflag = true;
             cap = (float)(0.5 * 0.05 * sum * 6 / 14.0);
+            for (int i = 0; i < barList.Count; i++)
+            {
+                Vector3 temp;
+                temp.x = barList[i].transform.localPosition.x;
+                temp.y = -generator.GetComponent<GenerateBar>().maxHeight;
+                temp.z = 0;
+                prevPosition.Add(temp);
+                barList[i].transform.localPosition = temp;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Application.LoadLevel("hashtag");
         }
-        if(cap!=0)
+        if(cap!=0&& readyStage)
         {
-            refresh();
+            timer -= Time.deltaTime;
+            if(timer <=0)
+            {
+                refresh();
+                timer = 3f;
+            }
         }
     }
     public void refresh()
     {
         for (int i = 0; i < barList.Count; i++)
         {
-            tagList[i].GetComponent<Text>().text = readData.Instance.hashtags[i];
-            Vector3 tempLocalScale;
-            tempLocalScale.x = barList[i].transform.localScale.x;
-            tempLocalScale.y = ((float)hashpoints[i]) / cap * generator.GetComponent<GenerateBar>().maxHeight;
-            tempLocalScale.z = 0;
-            barList[i].transform.localScale = tempLocalScale;
+            Vector3 tempPos;
+            tempPos.x = barList[i].transform.localPosition.x;
+            tempPos.z = 0;
+            tagList[i].GetComponent<Text>().text = hashtags[i];
+            if(cap<=hashpoints[i])
+            {
+                tempPos.y = 0;
+                barList[i].GetComponent<barMovement>().getCap = true;
+            }
+            else
+            {
+                tempPos.y = -(1-((float)hashpoints[i]) / cap) * generator.GetComponent<GenerateBar>().maxHeight;
+            }
+            barList[i].GetComponent<barMovement>().startMove(prevPosition[i], tempPos, 3f);
+            prevPosition[i] = tempPos;
         }
     }
 
