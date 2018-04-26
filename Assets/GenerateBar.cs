@@ -7,11 +7,13 @@ public class GenerateBar : MonoBehaviour {
     public GameObject bar;
     public GameObject bossBar;
     public GameObject tagName;
+    public GameObject score;
     public int barNum;
     public float barWidth;
     public float heightMaxPercentage;
     public List<GameObject> barList;
     public List<GameObject> tagNameList;
+    public List<GameObject> scoreList;
     public float maxHeight;
 
     private bool flag=false;
@@ -20,6 +22,7 @@ public class GenerateBar : MonoBehaviour {
 	void Start () {
         barList = new List<GameObject>();
         tagNameList = new List<GameObject>();
+        scoreList = new List<GameObject>();
         textCanvas = GameObject.FindGameObjectWithTag("TextCanvas");
         float height = this.transform.parent.GetComponent<RectTransform>().rect.height;
         float width = this.transform.parent.GetComponent<RectTransform>().rect.width;
@@ -59,8 +62,8 @@ public class GenerateBar : MonoBehaviour {
             tempPos.x = barList[i].transform.localPosition.x;
             tempPos.y = 0;
             tempPos.z = 0;
-            tempPos.y = -maxHeight/2 - 15;
-            tempPos.x += barWidth / 2 ;
+            tempPos.y = -maxHeight/2 - 25;
+            tempPos.x += barWidth/2 ;
             newText.transform.localPosition = tempPos;
             Vector3 tempScale;
             tempScale.x = barWidth;
@@ -70,6 +73,27 @@ public class GenerateBar : MonoBehaviour {
             tempScale.y = 1;
             newText.transform.localScale = tempScale;
             tagNameList.Add(newText);
+        }
+        for (int i = 0; i < barNum; i++)
+        {
+            GameObject newScore = Instantiate(score);
+            newScore.transform.parent = textCanvas.transform;
+            Vector3 tempPos;
+            tempPos.x = barList[i].transform.localPosition.x;
+            tempPos.y = 0;
+            tempPos.z = 0;
+            tempPos.y = -maxHeight / 2 + 5;
+            tempPos.x += barWidth / 4 *3;
+            newScore.transform.localPosition = tempPos;
+            Vector3 tempScale;
+            tempScale.x = barWidth;
+            tempScale.y = 0;
+            tempScale.z = 0;
+            tempScale.x = 1;
+            tempScale.y = 1;
+            newScore.transform.localScale = tempScale;
+            newScore.transform.SetParent(barList[i].transform);
+            scoreList.Add(newScore);
         }
 
     }

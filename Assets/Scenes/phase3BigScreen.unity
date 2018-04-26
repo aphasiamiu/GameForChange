@@ -769,7 +769,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4731499902150796, guid: 2c02e45d40ac5e4408d205d4218a8f87, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -381.99994
+      value: -424.1
       objectReference: {fileID: 0}
     - target: {fileID: 4731499902150796, guid: 2c02e45d40ac5e4408d205d4218a8f87, type: 2}
       propertyPath: m_LocalPosition.z
@@ -793,7 +793,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4731499902150796, guid: 2c02e45d40ac5e4408d205d4218a8f87, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4731499902150796, guid: 2c02e45d40ac5e4408d205d4218a8f87, type: 2}
       propertyPath: m_LocalScale.y
@@ -883,9 +883,11 @@ MonoBehaviour:
   bar: {fileID: 1644374261161108, guid: 2c02e45d40ac5e4408d205d4218a8f87, type: 2}
   bossBar: {fileID: 1644374261161108, guid: 07d715f92b9bc16449e23e890d11f572, type: 2}
   tagName: {fileID: 1747664193255914, guid: 2e955a82fcea11c49aa79b01c4da4f1a, type: 2}
+  score: {fileID: 1864753259537078, guid: 8fc85421aeca4414f83e032f5b18e1b2, type: 2}
   barNum: 6
   barWidth: 80
   heightMaxPercentage: 0.75
   barList: []
   tagNameList: []
+  scoreList: []
   maxHeight: 0

@@ -22,6 +22,7 @@ public class readData : MonoBehaviour
 
     public List<GameObject> barList;
     public List<GameObject> tagList;
+    public List<GameObject> scoreList;
     public GameObject text;
     public float cap = 0;
     private int startNum;
@@ -30,6 +31,7 @@ public class readData : MonoBehaviour
     private GameObject generator;
     private float timer = 3.0f;
     private List<Vector3> prevPosition;
+    private List<int> prevScore;
 
 
     private void Awake()
@@ -47,6 +49,7 @@ public class readData : MonoBehaviour
         StartCoroutine(GetText());
         generator = GameObject.FindGameObjectWithTag("Generator");
         prevPosition = new List<Vector3>();
+        prevScore = new List<int>();
     }
 
     IEnumerator SendPost(string _url, WWWForm _wform)
@@ -141,6 +144,7 @@ public class readData : MonoBehaviour
         {
             barList = generator.GetComponent<GenerateBar>().barList;
             tagList = generator.GetComponent<GenerateBar>().tagNameList;
+            scoreList = generator.GetComponent<GenerateBar>().scoreList;
             startflag = true;
             cap = (float)(0.5 * 0.05 * sum * 6 / 14.0);
             for (int i = 0; i < barList.Count; i++)
@@ -150,14 +154,17 @@ public class readData : MonoBehaviour
                 if(i ==0)
                 {
                     temp.y = 0;
+                    prevScore.Add(500000);
                 }
                 else
                 {
                     temp.y = -generator.GetComponent<GenerateBar>().maxHeight;
+                    prevScore.Add(0);
                 }
                 temp.z = 0;
                 prevPosition.Add(temp);
                 barList[i].transform.localPosition = temp;
+                scoreList[i].GetComponent<Text>().text = prevScore[i].ToString();
             }
         }
 
@@ -194,6 +201,8 @@ public class readData : MonoBehaviour
                 tempPos.y = -(1-((float)hashpoints[i]) / cap) * generator.GetComponent<GenerateBar>().maxHeight;
             }
             barList[i].GetComponent<barMovement>().startMove(prevPosition[i], tempPos, 10f);
+            barList[i].GetComponent<barMovement>().wrapperForScore(prevScore[i], hashpoints[i], 2f);
+            prevScore[i] = hashpoints[i];
             prevPosition[i] = tempPos;
         }
     }
