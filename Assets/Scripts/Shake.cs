@@ -5,20 +5,17 @@ using UnityEngine;
 public class Shake : MonoBehaviour {
     private bool startLerp = false;
     float t;
-    public float amplitude = 1.0f;
+    public float amplitude = 0.1f;
     public float frequency = 0.1f;
-    public float howlong = 1.0f;
+    private float originPos;
     // Use this for initialization
     void Start () {
-        shake();
+        originPos = this.transform.localPosition.x;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Time.time-t>howlong)
-        {
-            amplitude = 0;
-        }
+       
 	}
 
     void left()
@@ -29,10 +26,20 @@ public class Shake : MonoBehaviour {
     {
         this.transform.Translate(Vector3.right * amplitude);
     }
-    void shake()
+    public void shake()
     {
-        t = Time.time;
+        amplitude = 0.1f;
         InvokeRepeating("left", frequency, frequency);
         InvokeRepeating("right", frequency * 1.5f, frequency);
+    }
+    public void StopShake()
+    {
+        amplitude = 0;
+        Vector3 tmpPos = this.transform.localPosition;
+        if (tmpPos.x != originPos)
+        {
+            tmpPos.x = originPos;
+            this.transform.localPosition = tmpPos;
+        }
     }
 }

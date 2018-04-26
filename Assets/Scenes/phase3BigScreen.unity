@@ -793,7 +793,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4731499902150796, guid: 2c02e45d40ac5e4408d205d4218a8f87, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4731499902150796, guid: 2c02e45d40ac5e4408d205d4218a8f87, type: 2}
       propertyPath: m_LocalScale.y
@@ -831,7 +831,8 @@ Prefab:
       propertyPath: m_Name
       value: BarOverlay
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114258982362818090, guid: 2c02e45d40ac5e4408d205d4218a8f87, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2c02e45d40ac5e4408d205d4218a8f87, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1474857668
@@ -880,6 +881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 1644374261161108, guid: 2c02e45d40ac5e4408d205d4218a8f87, type: 2}
+  bossBar: {fileID: 1644374261161108, guid: 07d715f92b9bc16449e23e890d11f572, type: 2}
   tagName: {fileID: 1747664193255914, guid: 2e955a82fcea11c49aa79b01c4da4f1a, type: 2}
   barNum: 6
   barWidth: 80

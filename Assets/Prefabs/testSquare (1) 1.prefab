@@ -21,9 +21,8 @@ GameObject:
   - component: {fileID: 4731499902150796}
   - component: {fileID: 212755315831817154}
   - component: {fileID: 114258982362818090}
-  - component: {fileID: 114041291716944304}
   m_Layer: 0
-  m_Name: testSquare (1)
+  m_Name: testSquare (1) 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,20 +41,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114041291716944304
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1644374261161108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 332b99ed08c940240a6e7dc53237214e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amplitude: 1
-  frequency: 0.1
-  howlong: 1
 --- !u!114 &114258982362818090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,7 +88,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 32a019b89de0feb4d9ffe153acf20996, type: 3}
-  m_Color: {r: 0.013462382, g: 0.6102941, b: 0.091667995, a: 1}
+  m_Color: {r: 0.9034481, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

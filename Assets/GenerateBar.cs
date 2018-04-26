@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GenerateBar : MonoBehaviour {
     public GameObject bar;
+    public GameObject bossBar;
     public GameObject tagName;
     public int barNum;
     public float barWidth;
@@ -24,13 +25,22 @@ public class GenerateBar : MonoBehaviour {
         float width = this.transform.parent.GetComponent<RectTransform>().rect.width;
         float interval = (width - (barNum * barWidth)) / (barNum + 1);
         maxHeight = heightMaxPercentage * height;
+
         for (int i = 0; i < barNum; i++)
         {
-            GameObject newBar = Instantiate(bar);
+            GameObject newBar;
+            if (i==0)
+            {
+                newBar = Instantiate(bossBar);
+            }
+            else
+            {
+                newBar = Instantiate(bar);
+            }
             newBar.transform.parent = this.transform.parent;
             Vector3 tempPos;
             tempPos.x = -width/2 + interval * (i + 1) + barWidth * i + barWidth / 2;
-            tempPos.y = 0;
+            tempPos.y = -maxHeight;
             tempPos.z = 0;
             newBar.transform.localPosition = tempPos;
             Vector3 tempScale;
@@ -74,9 +84,10 @@ public class GenerateBar : MonoBehaviour {
 	}
     public void loadDataAndTag()
     {
-        for(int i = 0; i < barNum; i++)
+        for(int i = 1; i < barNum; i++)
         {
             tagNameList[i].GetComponent<Text>().text = readData.Instance.hashtags[i];
         }
+        tagNameList[0].GetComponent<Text>().text = "AvoidTopic";
     }
 }

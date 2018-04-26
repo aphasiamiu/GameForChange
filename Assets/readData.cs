@@ -147,7 +147,14 @@ public class readData : MonoBehaviour
             {
                 Vector3 temp;
                 temp.x = barList[i].transform.localPosition.x;
-                temp.y = -generator.GetComponent<GenerateBar>().maxHeight;
+                if(i ==0)
+                {
+                    temp.y = 0;
+                }
+                else
+                {
+                    temp.y = -generator.GetComponent<GenerateBar>().maxHeight;
+                }
                 temp.z = 0;
                 prevPosition.Add(temp);
                 barList[i].transform.localPosition = temp;
@@ -168,9 +175,10 @@ public class readData : MonoBehaviour
             }
         }
     }
+    //Refresh the bar value
     public void refresh()
     {
-        for (int i = 0; i < barList.Count; i++)
+        for (int i = 1; i < barList.Count; i++)
         {
             Vector3 tempPos;
             tempPos.x = barList[i].transform.localPosition.x;
@@ -185,9 +193,13 @@ public class readData : MonoBehaviour
             {
                 tempPos.y = -(1-((float)hashpoints[i]) / cap) * generator.GetComponent<GenerateBar>().maxHeight;
             }
-            barList[i].GetComponent<barMovement>().startMove(prevPosition[i], tempPos, 3f);
+            barList[i].GetComponent<barMovement>().startMove(prevPosition[i], tempPos, 10f);
             prevPosition[i] = tempPos;
         }
+    }
+    public void reduceAvoidTopicPoint()
+    {
+        //detective point from Boss bar
     }
 
 }
