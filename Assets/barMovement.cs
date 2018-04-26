@@ -32,7 +32,7 @@ public class barMovement : MonoBehaviour {
             {
                 //Lose point
                 this.GetComponent<SpriteRenderer>().color = Color.red;
-                this.GetComponent<Shake>().shake();
+             //   this.GetComponent<Shake>().shake();
             }
             else
             {
@@ -47,7 +47,7 @@ public class barMovement : MonoBehaviour {
             if(Mathf.Abs(this.transform.localPosition.y - targetPos.y)<0.5f)
             {
                 this.GetComponent<SpriteRenderer>().color = originColor;
-                this.GetComponent<Shake>().StopShake();
+              //  this.GetComponent<Shake>().StopShake();
                 this.transform.localPosition = targetPos;
                 isStartChangeScore = false;
                 flag = false;

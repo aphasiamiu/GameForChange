@@ -39,6 +39,7 @@ public class ScoreMovement : MonoBehaviour {
             {
                 flag = false;
                 this.GetComponent<Text>().color = originColor;
+                lerp = 0;
             }
         }
     }
