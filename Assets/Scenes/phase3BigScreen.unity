@@ -978,7 +978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 1697658724908832, guid: 2a5a9e2da05b2254a9b701bf9100418e, type: 2}
-  bossBar: {fileID: 1644374261161108, guid: 07d715f92b9bc16449e23e890d11f572, type: 2}
+  bossBar: {fileID: 1318146741688394, guid: 68a1238297323564b8088bf0fa3759ff, type: 2}
   barNum: 6
   barWidth: 80
   barList: []

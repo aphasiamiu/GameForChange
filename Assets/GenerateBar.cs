@@ -35,7 +35,7 @@ public class GenerateBar : MonoBehaviour {
             GameObject newBar;
             if (i==0)
             {
-                newBar = Instantiate(bar);
+                newBar = Instantiate(bossBar);
             }
             else
             {
