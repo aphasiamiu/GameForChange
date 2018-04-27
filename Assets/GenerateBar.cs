@@ -6,11 +6,10 @@ using UnityEngine.UI;
 public class GenerateBar : MonoBehaviour {
     public GameObject bar;
     public GameObject bossBar;
-    public GameObject tagName;
-    public GameObject score;
+
     public int barNum;
     public float barWidth;
-    public float heightMaxPercentage;
+
     public List<GameObject> barList;
     public List<GameObject> tagNameList;
     public List<GameObject> scoreList;
@@ -18,43 +17,46 @@ public class GenerateBar : MonoBehaviour {
 
     private bool flag=false;
     private GameObject textCanvas;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    private void Awake()
+    {
+        maxHeight = bar.GetComponent<part>().bar_img.GetComponent<RectTransform>().rect.height;
+    }
+    void Start () {
         barList = new List<GameObject>();
         tagNameList = new List<GameObject>();
         scoreList = new List<GameObject>();
+        barWidth = bar.GetComponent<part>().bar_img.GetComponent<RectTransform>().rect.width;
         textCanvas = GameObject.FindGameObjectWithTag("TextCanvas");
-        float height = this.transform.parent.GetComponent<RectTransform>().rect.height;
         float width = this.transform.parent.GetComponent<RectTransform>().rect.width;
         float interval = (width - (barNum * barWidth)) / (barNum + 1);
-        maxHeight = heightMaxPercentage * height;
-
         for (int i = 0; i < barNum; i++)
         {
             GameObject newBar;
             if (i==0)
             {
-                newBar = Instantiate(bossBar);
+                newBar = Instantiate(bar);
             }
             else
             {
                 newBar = Instantiate(bar);
             }
-            newBar.transform.parent = this.transform.parent;
+            newBar.transform.parent = textCanvas.transform;
             Vector3 tempPos;
             tempPos.x = -width/2 + interval * (i + 1) + barWidth * i + barWidth / 2;
-            tempPos.y = -maxHeight;
+            tempPos.y = 0;
             tempPos.z = 0;
             newBar.transform.localPosition = tempPos;
             Vector3 tempScale;
-            tempScale.x = barWidth;
-            tempScale.y = maxHeight;
-            tempScale.z = 0;
+            tempScale.x = 1;
+            tempScale.y = 1;
+            tempScale.z = 1;
             newBar.transform.localScale = tempScale;
-            barList.Add(newBar);
-
+            barList.Add(newBar.GetComponent<part>().bar_img);
+            tagNameList.Add(newBar.GetComponent<part>().tag_text);
+            scoreList.Add(newBar.GetComponent<part>().score_text);
         }
-        for (int i = 0; i < barNum; i++)
+       /* for (int i = 0; i < barNum; i++)
         {
             GameObject newText = Instantiate(tagName);
             newText.transform.parent = textCanvas.transform;
@@ -94,7 +96,7 @@ public class GenerateBar : MonoBehaviour {
             newScore.transform.localScale = tempScale;
             newScore.transform.SetParent(barList[i].transform);
             scoreList.Add(newScore);
-        }
+        }*/
 
     }
 	

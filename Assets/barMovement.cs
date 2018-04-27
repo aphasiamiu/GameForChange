@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class barMovement : MonoBehaviour {
     private Vector3 prevPos;
@@ -16,7 +17,7 @@ public class barMovement : MonoBehaviour {
     private bool isStartChangeScore = false;
 	// Use this for initialization
 	void Start () {
-        originColor = this.GetComponent<SpriteRenderer>().color;
+        originColor = this.GetComponent<Image>().color;
     }
 	
 	// Update is called once per frame
@@ -31,13 +32,12 @@ public class barMovement : MonoBehaviour {
             if(targetPos.y<prevPos.y)
             {
                 //Lose point
-                this.GetComponent<SpriteRenderer>().color = Color.red;
-             //   this.GetComponent<Shake>().shake();
+                this.GetComponent<Image>().color = Color.red;
             }
             else
             {
                 //Gain point
-                this.GetComponent<SpriteRenderer>().color = Color.yellow;
+                this.GetComponent<Image>().color = Color.yellow;
             }
             Vector3 tempPos;
             tempPos = targetPos;
@@ -46,7 +46,7 @@ public class barMovement : MonoBehaviour {
             this.transform.localPosition = tempPos;
             if(Mathf.Abs(this.transform.localPosition.y - targetPos.y)<0.5f)
             {
-                this.GetComponent<SpriteRenderer>().color = originColor;
+                this.GetComponent<Image>().color = originColor;
               //  this.GetComponent<Shake>().StopShake();
                 this.transform.localPosition = targetPos;
                 isStartChangeScore = false;
@@ -55,7 +55,7 @@ public class barMovement : MonoBehaviour {
                 if(getCap)
                 {
                     //Get to the Cap
-                    this.GetComponent<SpriteRenderer>().color = Color.grey;
+                    this.GetComponent<Image>().color = Color.grey;
                 }
             }
         }
@@ -75,6 +75,6 @@ public class barMovement : MonoBehaviour {
     }
     private void startChangeScore()
     {
-        this.GetComponentInChildren<ScoreMovement>().startChangeScore(originScore, targetScore, durationforScore);
+        this.transform.parent.GetComponentInChildren<ScoreMovement>().startChangeScore(originScore, targetScore, durationforScore);
     }
 }

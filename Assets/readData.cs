@@ -32,6 +32,7 @@ public class readData : MonoBehaviour
     private float timer = 3.0f;
     private List<Vector3> prevPosition;
     private List<int> prevScore;
+    private float originPosY;
 
 
     private void Awake()
@@ -151,14 +152,17 @@ public class readData : MonoBehaviour
             {
                 Vector3 temp;
                 temp.x = barList[i].transform.localPosition.x;
-                if(i ==0)
+                originPosY = barList[i].transform.localPosition.y;
+                if (i ==0)
                 {
-                    temp.y = 0;
+                    temp.y = originPosY;
                     prevScore.Add(500000);
                 }
                 else
                 {
-                    temp.y = -generator.GetComponent<GenerateBar>().maxHeight;
+                    
+                    temp.y = originPosY - generator.GetComponent<GenerateBar>().maxHeight;
+                    Debug.Log(temp.y);
                     prevScore.Add(0);
                 }
                 temp.z = 0;
@@ -193,12 +197,12 @@ public class readData : MonoBehaviour
             tagList[i].GetComponent<Text>().text = hashtags[i];
             if(cap<=hashpoints[i])
             {
-                tempPos.y = 0;
+                tempPos.y = originPosY;
                 barList[i].GetComponent<barMovement>().getCap = true;
             }
             else
             {
-                tempPos.y = -(1-((float)hashpoints[i]) / cap) * generator.GetComponent<GenerateBar>().maxHeight;
+                tempPos.y = originPosY - (1-((float)hashpoints[i]) / cap) * generator.GetComponent<GenerateBar>().maxHeight;
             }
             barList[i].GetComponent<barMovement>().startMove(prevPosition[i], tempPos, 10f);
             barList[i].GetComponent<barMovement>().wrapperForScore(prevScore[i], hashpoints[i], 2f);
