@@ -7,6 +7,10 @@ TagManager:
   - Canvas
   - Generator
   - TextCanvas
+  - Fire
+  - bar_pic
+  - score_text
+  - tagname_text
   layers:
   - Default
   - TransparentFX
