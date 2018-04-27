@@ -61,6 +61,7 @@ public class barMovement : MonoBehaviour {
                 if(getCap)
                 {
                     //Get to the Cap
+                    readData.Instance.reduceAvoidTopicPoint();
                     this.GetComponent<Image>().color = phase3;
                     StartCoroutine(getToCap());
                 }

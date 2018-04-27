@@ -156,13 +156,12 @@ public class readData : MonoBehaviour
                 if (i ==0)
                 {
                     temp.y = originPosY;
-                    prevScore.Add(500000);
+                    prevScore.Add(1000000);
                 }
                 else
                 {
                     
                     temp.y = originPosY - generator.GetComponent<GenerateBar>().maxHeight;
-                    Debug.Log(temp.y);
                     prevScore.Add(0);
                 }
                 temp.z = 0;
@@ -226,6 +225,16 @@ public class readData : MonoBehaviour
     public void reduceAvoidTopicPoint()
     {
         //detective point from Boss bar
+        Vector3 tempPos;
+        tempPos.x = barList[0].transform.localPosition.x;
+        float tempY = barList[0].transform.localPosition.y;
+        tempY -= generator.GetComponent<GenerateBar>().maxHeight / 6;
+        tempPos.y = tempY;
+        tempPos.z = 0;
+        barList[0].GetComponent<barMovement>().startMove(barList[0].transform.localPosition, tempPos, 10f);
+        barList[0].GetComponent<barMovement>().wrapperForScore(prevScore[0], prevScore[0]/6*5, 1f);
+        prevScore[0] *= (5 / 6);
+
     }
 
 }
