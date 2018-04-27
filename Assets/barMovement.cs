@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class barMovement : MonoBehaviour {
+    public Color32 lostPointColor;
+    public Color32 gainPointColor;
+    public Color32 getCapColor;
     private Vector3 prevPos;
     private Vector3 targetPos;
     private float duration;
@@ -32,12 +35,12 @@ public class barMovement : MonoBehaviour {
             if(targetPos.y<prevPos.y)
             {
                 //Lose point
-                this.GetComponent<Image>().color = Color.red;
+                this.GetComponent<Image>().color = lostPointColor;
             }
             else
             {
                 //Gain point
-                this.GetComponent<Image>().color = Color.yellow;
+                this.GetComponent<Image>().color = gainPointColor;
             }
             Vector3 tempPos;
             tempPos = targetPos;
@@ -47,7 +50,6 @@ public class barMovement : MonoBehaviour {
             if(Mathf.Abs(this.transform.localPosition.y - targetPos.y)<0.5f)
             {
                 this.GetComponent<Image>().color = originColor;
-              //  this.GetComponent<Shake>().StopShake();
                 this.transform.localPosition = targetPos;
                 isStartChangeScore = false;
                 flag = false;
@@ -55,7 +57,7 @@ public class barMovement : MonoBehaviour {
                 if(getCap)
                 {
                     //Get to the Cap
-                    this.GetComponent<Image>().color = Color.grey;
+                    this.GetComponent<Image>().color = getCapColor;
                 }
             }
         }
