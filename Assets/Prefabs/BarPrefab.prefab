@@ -190,9 +190,21 @@ MonoBehaviour:
   gainPointColor:
     serializedVersion: 2
     rgba: 4282515200
-  getCapColor:
+  phase0:
     serializedVersion: 2
-    rgba: 4278251007
+    rgba: 4294967295
+  phase1:
+    serializedVersion: 2
+    rgba: 4278240255
+  phase2:
+    serializedVersion: 2
+    rgba: 4281859840
+  phase3:
+    serializedVersion: 2
+    rgba: 4294915840
+  greyout:
+    serializedVersion: 2
+    rgba: 4278190080
   getCap: 0
 --- !u!114 &114908200755189084
 MonoBehaviour:

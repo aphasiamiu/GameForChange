@@ -199,9 +199,22 @@ public class readData : MonoBehaviour
             {
                 tempPos.y = originPosY;
                 barList[i].GetComponent<barMovement>().getCap = true;
+
             }
             else
             {
+                if (((float)hashpoints[i]) / cap < 0.3333f)
+                {
+                    barList[i].GetComponent<barMovement>().changePhase(0);
+                }
+                else if (((float)hashpoints[i])/cap>0.3333f&& ((float)hashpoints[i]) / cap < 0.66667f)
+                {
+                    barList[i].GetComponent<barMovement>().changePhase(1);
+                }
+                else if (((float)hashpoints[i]) / cap > 0.66667f && ((float)hashpoints[i]) / cap < 1)
+                {
+                    barList[i].GetComponent<barMovement>().changePhase(2);
+                }
                 tempPos.y = originPosY - (1-((float)hashpoints[i]) / cap) * generator.GetComponent<GenerateBar>().maxHeight;
             }
             barList[i].GetComponent<barMovement>().startMove(prevPosition[i], tempPos, 10f);

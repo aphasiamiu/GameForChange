@@ -6,7 +6,11 @@ using UnityEngine.UI;
 public class barMovement : MonoBehaviour {
     public Color32 lostPointColor;
     public Color32 gainPointColor;
-    public Color32 getCapColor;
+    public Color32 phase0;
+    public Color32 phase1;//over 1/3
+    public Color32 phase2;//over 2/3
+    public Color32 phase3;//over 3/3
+    public Color32 greyout;//grey out
     private Vector3 prevPos;
     private Vector3 targetPos;
     private float duration;
@@ -57,7 +61,8 @@ public class barMovement : MonoBehaviour {
                 if(getCap)
                 {
                     //Get to the Cap
-                    this.GetComponent<Image>().color = getCapColor;
+                    this.GetComponent<Image>().color = phase3;
+                    StartCoroutine(getToCap());
                 }
             }
         }
@@ -69,6 +74,24 @@ public class barMovement : MonoBehaviour {
         duration = dura;
         flag = true;
     }
+    public void changePhase(int i)
+    {
+        if (!getCap)
+        {
+            switch (i)
+            {
+                case 0:
+                    originColor = phase0;
+                    break;
+                case 1:
+                    originColor = phase1;
+                    break;
+                case 2:
+                    originColor = phase2;
+                    break;
+            }
+        }
+    }
     public void wrapperForScore(int oriScore, int tarScore, float dura)
     {
         originScore = oriScore;
@@ -78,5 +101,10 @@ public class barMovement : MonoBehaviour {
     private void startChangeScore()
     {
         this.transform.parent.GetComponentInChildren<ScoreMovement>().startChangeScore(originScore, targetScore, durationforScore);
+    }
+    IEnumerator getToCap()
+    {
+        yield return new WaitForSeconds(3);
+        this.GetComponent<Image>().color = greyout;
     }
 }
