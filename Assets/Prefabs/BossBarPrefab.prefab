@@ -158,14 +158,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.99264705, g: 0.31385165, b: 0.31385165, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: da01ff2e957e6e4498d9ad11e3f0a7d8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32a019b89de0feb4d9ffe153acf20996, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -184,6 +184,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e873071de9fff4da01bd50537db7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lostPointColor:
+    serializedVersion: 2
+    rgba: 4294965210
+  gainPointColor:
+    serializedVersion: 2
+    rgba: 4292410623
+  phase0:
+    serializedVersion: 2
+    rgba: 4291010170
+  phase1:
+    serializedVersion: 2
+    rgba: 4278240255
+  phase2:
+    serializedVersion: 2
+    rgba: 4278221311
+  phase3:
+    serializedVersion: 2
+    rgba: 4292534271
+  greyout:
+    serializedVersion: 2
+    rgba: 4287664272
   getCap: 0
 --- !u!114 &114694011136758870
 MonoBehaviour:
