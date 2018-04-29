@@ -39,12 +39,12 @@ public class barMovement : MonoBehaviour {
             if(targetPos.y<prevPos.y)
             {
                 //Lose point
-                this.GetComponent<Image>().color = lostPointColor;
+             //   this.GetComponent<Image>().color = lostPointColor;
             }
             else
             {
                 //Gain point
-                this.GetComponent<Image>().color = gainPointColor;
+            //    this.GetComponent<Image>().color = gainPointColor;
             }
             Vector3 tempPos;
             tempPos = targetPos;
