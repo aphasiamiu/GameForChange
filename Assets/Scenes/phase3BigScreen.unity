@@ -348,7 +348,6 @@ MonoBehaviour:
   barList: []
   tagList: []
   scoreList: []
-  text: {fileID: 0}
   overlay: {fileID: 1933967828}
   cap: 0
 --- !u!4 &145452535
@@ -1375,7 +1374,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200, y: 800}
+  m_SizeDelta: {x: 10000, y: 8000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1933967830
 MonoBehaviour:
@@ -1389,7 +1388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
