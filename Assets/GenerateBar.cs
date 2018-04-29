@@ -114,6 +114,6 @@ public class GenerateBar : MonoBehaviour {
         {
             tagNameList[i].GetComponent<Text>().text = readData.Instance.hashtags[i];
         }
-        tagNameList[0].GetComponent<Text>().text = "AvoidTopic";
+      //  tagNameList[0].GetComponent<Text>().text = "AvoidTopic";
     }
 }
