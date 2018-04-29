@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/programming.unity
     guid: 65c391df01fcda6498fbd3404f6e191d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/hashtag.unity
     guid: 34d1abe7dae7b314bbac12b4b88d88a8
   - enabled: 0
     path: Assets/Scenes/phase3.unity
     guid: 543875fd0fa6e4141ab21f48e9cf77a2
+  - enabled: 1
+    path: Assets/Scenes/phase3BigScreen.unity
+    guid: 779e8a61005f6174886828c03b409a59

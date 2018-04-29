@@ -32,6 +32,7 @@ public class readData : MonoBehaviour
     private float timer = 3.0f;
     private List<Vector3> prevPosition;
     private List<int> prevScore;
+    private int bossPhase = 3;
     private float originPosY;
 
 
@@ -224,17 +225,18 @@ public class readData : MonoBehaviour
     }
     public void reduceAvoidTopicPoint()
     {
+        bossPhase--;
         //detective point from Boss bar
         Vector3 tempPos;
         tempPos.x = barList[0].transform.localPosition.x;
         float tempY = barList[0].transform.localPosition.y;
-        tempY -= generator.GetComponent<GenerateBar>().maxHeight / 6;
+        tempY -= generator.GetComponent<GenerateBar>().maxHeight / 3;
         tempPos.y = tempY;
         tempPos.z = 0;
         barList[0].GetComponent<barMovement>().startMove(barList[0].transform.localPosition, tempPos, 10f);
-        barList[0].GetComponent<barMovement>().wrapperForScore(prevScore[0], prevScore[0]/6*5, 1f);
-        prevScore[0] *= (5 / 6);
-
+        barList[0].GetComponent<barMovement>().wrapperForScore(prevScore[0], prevScore[0]/3*2, 1f);
+        prevScore[0] *= (2 / 3);
+        barList[0].GetComponent<barMovement>().changePhase(bossPhase);
     }
 
 }
