@@ -23,7 +23,7 @@ public class readData : MonoBehaviour
     public List<GameObject> barList;
     public List<GameObject> tagList;
     public List<GameObject> scoreList;
-    public GameObject text;
+    public GameObject overlay;
     public float cap = 0;
     private int startNum;
     private int count;
@@ -230,13 +230,46 @@ public class readData : MonoBehaviour
         Vector3 tempPos;
         tempPos.x = barList[0].transform.localPosition.x;
         float tempY = barList[0].transform.localPosition.y;
-        tempY -= generator.GetComponent<GenerateBar>().maxHeight / 3;
+        float ratio = 1;
+        if (bossPhase == 2)
+        {
+            ratio = 0.85f;
+        }
+        else if (bossPhase == 1)
+        {
+            ratio = 0.5f;
+        }
+        else if (bossPhase == 0)
+        {
+            ratio = 0f;
+        }
+        tempY -= generator.GetComponent<GenerateBar>().maxHeight *(1-ratio);
         tempPos.y = tempY;
         tempPos.z = 0;
+       
         barList[0].GetComponent<barMovement>().startMove(barList[0].transform.localPosition, tempPos, 10f);
-        barList[0].GetComponent<barMovement>().wrapperForScore(prevScore[0], prevScore[0]/3*2, 1f);
-        prevScore[0] *= (2 / 3);
+        barList[0].GetComponent<barMovement>().wrapperForScore(prevScore[0],(int) (prevScore[0]*ratio), 1f);
+        prevScore[0] = (int)(prevScore[0]*ratio);
         barList[0].GetComponent<barMovement>().changePhase(bossPhase);
+        if(bossPhase == 0)
+        {
+            StartCoroutine(gameWin());
+        }
     }
-
+    IEnumerator gameWin()
+    {
+        Debug.Log("win");
+        yield return new WaitForSeconds(2);
+        while(true)
+        {
+            Color color = overlay.GetComponent<Image>().color;
+            yield return new WaitForSeconds(0.05f);
+            color.a += 0.01f;
+            overlay.GetComponent<Image>().color = color;
+            if(color.a >=1)
+            {
+                break;
+            }
+        }
+    }
 }
