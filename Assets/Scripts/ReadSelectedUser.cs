@@ -221,7 +221,7 @@ public class ReadSelectedUser : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Application.LoadLevel("hashtag");
+            Application.LoadLevel("phase3BigScreen");
         }
     }
        
