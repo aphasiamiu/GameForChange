@@ -22,6 +22,7 @@ public class barMovement : MonoBehaviour {
     private int targetScore;
     private float durationforScore;
     private bool isStartChangeScore = false;
+    private bool endFlag=false;
 	// Use this for initialization
 	void Start () {
         originColor = this.GetComponent<Image>().color;
@@ -29,7 +30,7 @@ public class barMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (flag&&(!getCap||targetPos.y>prevPos.y))
+        if (flag&&(!getCap||targetPos.y>prevPos.y)&&!endFlag)
         {
             if(!isStartChangeScore)
             {
@@ -64,6 +65,7 @@ public class barMovement : MonoBehaviour {
                     readData.Instance.reduceAvoidTopicPoint();
                     this.GetComponent<Image>().color = phase3;
                     StartCoroutine(getToCap());
+                    endFlag = true;
                 }
             }
         }
