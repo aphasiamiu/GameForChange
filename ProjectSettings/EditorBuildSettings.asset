@@ -5,18 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/scoreboard.unity
-    guid: 382dd10e7f644d147a97f7f791515573
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/video1.unity
+    guid: 4603df55220665048b69a96803b02902
+  - enabled: 1
     path: Assets/Scenes/programming.unity
     guid: 65c391df01fcda6498fbd3404f6e191d
-  - enabled: 0
-    path: Assets/Scenes/hashtag.unity
-    guid: 34d1abe7dae7b314bbac12b4b88d88a8
-  - enabled: 0
-    path: Assets/Scenes/phase3.unity
-    guid: 543875fd0fa6e4141ab21f48e9cf77a2
+  - enabled: 1
+    path: Assets/Scenes/video2.unity
+    guid: 8f94784daab0c704ea790d80a413a3da
   - enabled: 1
     path: Assets/Scenes/phase3BigScreen.unity
     guid: 779e8a61005f6174886828c03b409a59
+  - enabled: 1
+    path: Assets/Scenes/video3.unity
+    guid: e9988fada1f70f3439d7d218e4a26b5f

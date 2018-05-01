@@ -215,14 +215,7 @@ public class ReadSelectedUser : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Application.LoadLevel("programming");
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Application.LoadLevel("phase3BigScreen");
-        }
+      
     }
        
 }

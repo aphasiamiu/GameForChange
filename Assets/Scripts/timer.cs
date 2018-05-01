@@ -37,6 +37,7 @@ public class timer : MonoBehaviour {
         if (sec < 10) { time.GetComponent<Text>().text = min.ToString() + ":0" + sec.ToString(); }
         if (all < 3 && flag == false)
         {
+
             if(!clock.isPlaying)
             {
                 clock.Play();
