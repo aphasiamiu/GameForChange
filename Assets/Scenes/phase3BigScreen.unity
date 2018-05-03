@@ -1201,6 +1201,17 @@ MonoBehaviour:
   tagNameList: []
   scoreList: []
   maxHeight: 0
+--- !u!1 &1693648041 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1713146143096046, guid: c1636c3e32b12704cb44c94639aa6950,
+    type: 2}
+  m_PrefabInternal: {fileID: 1801815114}
+--- !u!222 &1693648042
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1693648041}
 --- !u!1 &1704174685
 GameObject:
   m_ObjectHideFlags: 0
