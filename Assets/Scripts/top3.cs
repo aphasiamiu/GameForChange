@@ -28,12 +28,13 @@ public class top3 : MonoBehaviour {
                     if (r == 0) { cheer0.Play(); }
                     if (r == 1) { cheer1.Play(); }
                     if (r == 2) { cheer2.Play(); }
-                    name.GetComponent<Text>().text = ReadSelectedUser.Instance.sortnames[int.Parse(transform.parent.name) - 1];
-                    name.transform.parent.Find("score").GetComponent<Text>().text = ReadSelectedUser.Instance.sortpoints[int.Parse(transform.parent.name) - 1].ToString();
+                   
                 }
+                name.GetComponent<Text>().text = ReadSelectedUser.Instance.sortnames[int.Parse(transform.parent.name) - 1];
+                name.transform.parent.Find("score").GetComponent<Text>().text = ReadSelectedUser.Instance.sortpoints[int.Parse(transform.parent.name) - 1].ToString();
             }
-            
-            
+           
+
         }
         
     }

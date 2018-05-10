@@ -21,13 +21,17 @@ public class ChangeScene : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            Application.LoadLevel("video2");
+            Application.LoadLevel("video1.5");
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Application.LoadLevel("phase3BigScreen");
+            Application.LoadLevel("video2");
         }
         if (Input.GetKeyDown(KeyCode.G))
+        {
+            Application.LoadLevel("phase3BigScreen");
+        }
+        if (Input.GetKeyDown(KeyCode.H))
         {
             Application.LoadLevel("video3");
         }
